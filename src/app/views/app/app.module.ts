@@ -6,7 +6,6 @@ import { AppRoutingModule } from './app.routing';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { LayoutContainersModule } from 'src/app/containers/layout/layout.containers.module';
 
-
 @NgModule({
   declarations: [BlankPageComponent, AppComponent],
   imports: [
