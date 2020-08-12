@@ -5,10 +5,10 @@ import { UserRole } from '../app/shared/auth.roles';
 
 export const environment = {
   production: false,
-  buyUrl : "https://1.envato.market/6NV1b",
+  buyUrl : "",
   SCARF_ANALYTICS : false,
-  adminRoot: '/app',
-  apiUrl: 'https://api.coloredstrategies.com',
+  adminRoot: '/projects',
+  apiUrl: '',
   defaultMenuType: 'menu-default',
   subHiddenBreakpoint: 1440,
   menuHiddenBreakpoint: 768,
@@ -19,7 +19,7 @@ export const environment = {
   'light.blueyale', 'light.blueolympic', 'light.bluenavy', 'light.greenmoss', 'light.greenlime', 'light.yellowgranola', 'light.greysteel', 'light.orangecarrot', 'light.redruby', 'light.purplemonster'
   'dark.blueyale', 'dark.blueolympic', 'dark.bluenavy', 'dark.greenmoss', 'dark.greenlime', 'dark.yellowgranola', 'dark.greysteel', 'dark.orangecarrot', 'dark.redruby', 'dark.purplemonster'
   */
-  defaultColor: 'light.greysteel',
+  defaultColor: 'light.blueyale',
   isDarkSwitchActive: false,
   defaultDirection: 'ltr',
   themeRadiusStorageKey: 'vien-themeradius',

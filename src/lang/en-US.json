@@ -1,6 +1,6 @@
 {
   "general": {
-    "copyright": "Vien Angular © 2020 All Rights Reserved."
+    "copyright": "Borges © 2020 All Rights Reserved."
   },
   "unauthorized": {
     "title": "Unauthorized Access Attempt",
@@ -23,10 +23,11 @@
     "code": "Reset Code"
   },
   "menu": {
-    "home": "Home",
+    "home": "Writing Projects",
     "app": "Home",
-    "vien": "Vien",
+    "projects": "Projects",
     "start": "Start",
+    "borges": "Borges",
     "second-menu": "Second Menu",
     "second": "Second",
     "dashboards": "Dashboards",
