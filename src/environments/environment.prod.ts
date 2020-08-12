@@ -5,10 +5,10 @@ import { UserRole } from '../app/shared/auth.roles';
 
 export const environment = {
   production: true,
-  buyUrl : "https://1.envato.market/6NV1b",
+  buyUrl : "",
   SCARF_ANALYTICS : false,
-  adminRoot: '/app',
-  apiUrl:  'https://api.coloredstrategies.com',
+  adminRoot: '/',
+  apiUrl:  '',
   defaultMenuType: 'menu-default',
   subHiddenBreakpoint: 1440,
   menuHiddenBreakpoint: 768,

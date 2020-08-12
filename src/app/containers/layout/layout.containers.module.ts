@@ -14,6 +14,7 @@ import { FormsModule } from '@angular/forms';
 import { CollapseModule } from 'ngx-bootstrap/collapse';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
+import { AvatarModule } from 'ngx-avatar';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { TooltipModule } from 'ngx-bootstrap/tooltip';
     FormsModule,
     BsDropdownModule.forRoot(),
     TooltipModule.forRoot(),
+    AvatarModule
   ],
   exports: [
     TopnavComponent,

@@ -16,7 +16,7 @@ export class TopnavComponent implements OnInit, OnDestroy {
   adminRoot = environment.adminRoot;
   sidebar: ISidebar;
   subscription: Subscription;
-  displayName = "Sarah Cortney";
+  displayName = "";
   languages: Language[];
   currentLanguage: string;
   isSingleLang;
