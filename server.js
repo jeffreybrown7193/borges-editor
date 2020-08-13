@@ -32,7 +32,7 @@ app.use(methodOverride('X-HTTP-Method-Override'));
 app.use(express.static(__dirname + '/src/app/assets'));
 
 // routes ==================================================
-require('./src/routes')(app); // configure our routes
+require('./routes/api')(app); // configure our routes
 
 // start app ===============================================
 app.listen(port);
