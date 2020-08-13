@@ -6,7 +6,7 @@ const MongoClient = require('mongodb').MongoClient;
 var methodOverride = require('method-override');
 
 // configuration ===========================================
-MongoClient.connect('mongodb://192.168.3.2:27017/', (err, client) => {
+MongoClient.connect('mongodb://localhost:27017/', (err, client) => {
   var db = client.db('borges');
   return db;
 });
