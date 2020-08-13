@@ -41,6 +41,7 @@
     "chart.js": "^2.9.3",
     "express": "^4.17.1",
     "firebase": "^7.15.5",
+    "heroku": "^7.42.6",
     "method-override": "^3.0.0",
     "mongodb": "^3.6.0",
     "ng2-nouislider": "^1.8.2",

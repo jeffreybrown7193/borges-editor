@@ -6,8 +6,10 @@ const MongoClient = require('mongodb').MongoClient;
 var methodOverride = require('method-override');
 
 // configuration ===========================================
-MongoClient.connect('mongodb://192.168.3.2:27017/', (err, client) => {
-  var db = client.db('borges');
+const uri = "mongodb+srv://jeffreyallanbrown:LittleDusty2021!@borges.na4zy.gcp.mongodb.net/borges";
+const client = new MongoClient(uri, { useNewUrlParser: true });
+client.connect(err => {
+  const db = client.db("borges");
   return db;
 });
 
