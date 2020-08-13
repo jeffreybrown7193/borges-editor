@@ -4,8 +4,8 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app.routing';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { LayoutContainersModule } from 'src/app/containers/layout/layout.containers.module';
-import { ProjectsComponent } from './projects/projects.component';
-
+import { ProjectsComponent } from 'src/app/views/app/projects/projects.component';
+import { ComponentsModule } from 'src/app/components/components.module';
 
 @NgModule({
   declarations: [AppComponent, ProjectsComponent],
@@ -13,7 +13,8 @@ import { ProjectsComponent } from './projects/projects.component';
     CommonModule,
     AppRoutingModule,
     SharedModule,
-    LayoutContainersModule
+    LayoutContainersModule,
+    ComponentsModule
   ]
 })
 export class AppModule { }

@@ -9,8 +9,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { AngularFireModule } from '@angular/fire';
 import { environment } from 'src/environments/environment';
 import { LayoutContainersModule } from './containers/layout/layout.containers.module';
-import { ProjectItemComponent } from './components/updated/project-item/project-item.component';
-
 
 @NgModule({
   imports: [
@@ -24,8 +22,7 @@ import { ProjectItemComponent } from './components/updated/project-item/project-
     AngularFireModule.initializeApp(environment.firebase)
   ],
   declarations: [
-    AppComponent,
-    ProjectItemComponent
+    AppComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

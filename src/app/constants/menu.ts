@@ -17,7 +17,19 @@ const data: IMenuItem[] = [
     id: 'projects',
     icon: 'iconsminds-books',
     label: 'menu.projects',
-    to: `${adminRoot}`,
+    to: `${adminRoot}`
+  },
+  {
+    id: 'reading-lists',
+    icon: 'iconsminds-check',
+    label: 'menu.reading-lists',
+    to: `${adminRoot}/lists`
+  },
+  {
+    id: 'book-clubs',
+    icon: 'iconsminds-speach-bubble-comic-4',
+    label: 'menu.book-clubs',
+    to: `${adminRoot}/clubs`
   },
 ];
 export default data;
