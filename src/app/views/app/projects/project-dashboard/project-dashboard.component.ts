@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./project-dashboard.component.scss']
 
 })
-export class ProjectsComponent implements OnInit {
+export class ProjectDashboardComponent implements OnInit {
 
   constructor() { }
 
