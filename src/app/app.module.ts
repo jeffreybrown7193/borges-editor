@@ -24,6 +24,9 @@ import { LayoutContainersModule } from './containers/layout/layout.containers.mo
   declarations: [
     AppComponent
   ],
+  exports: [
+
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })

@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
-import { ProjectsComponent } from './projects/projects.component';
+import { ProjectsComponent } from './projects/project-dashboard/project-dashboard.component';
 import { ReadingListsComponent } from './reading-lists/reading-lists.component';
 
 const routes: Routes = [
