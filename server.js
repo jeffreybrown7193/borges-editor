@@ -1,20 +1,17 @@
-// modules =================================================
-var express = require('express');
-var app = express();
-var bodyParser = require('body-parser');
-const MongoClient = require('mongodb').MongoClient;
-var methodOverride = require('method-override');
+// required modules =================================================
+const express = require('express');
+const app = express();
+const bodyParser = require('body-parser');
+const methodOverride = require('method-override');
 
-// configuration ===========================================
-const uri = "mongodb+srv://jeffreyallanbrown:LittleDusty2021!@borges.na4zy.gcp.mongodb.net/borges";
-const client = new MongoClient(uri, { useNewUrlParser: true });
-client.connect(err => {
-  const db = client.db("borges");
-  return db;
-});
+// db configuration ===========================================
+require('./db-config/db-config');
+
+// define mongoose schema
+require('./db-config/schema/projectSchema');
 
 // set our port
-var port = process.env.PORT || 4201;
+const port = process.env.PORT || 4201;
 
 // parse application/json
 app.use(bodyParser.json());
