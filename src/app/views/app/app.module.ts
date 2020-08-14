@@ -6,9 +6,10 @@ import { SharedModule } from 'src/app/shared/shared.module';
 import { LayoutContainersModule } from 'src/app/containers/layout/layout.containers.module';
 import { ProjectsComponent } from 'src/app/views/app/projects/projects.component';
 import { ComponentsModule } from 'src/app/components/components.module';
+import { ReadingListsComponent } from './reading-lists/reading-lists.component';
 
 @NgModule({
-  declarations: [AppComponent, ProjectsComponent],
+  declarations: [AppComponent, ProjectsComponent, ReadingListsComponent],
   imports: [
     CommonModule,
     AppRoutingModule,

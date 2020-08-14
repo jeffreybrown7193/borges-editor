@@ -23,13 +23,7 @@ const data: IMenuItem[] = [
     id: 'reading-lists',
     icon: 'iconsminds-check',
     label: 'menu.reading-lists',
-    to: `${adminRoot}/lists`
-  },
-  {
-    id: 'book-clubs',
-    icon: 'iconsminds-speach-bubble-comic-4',
-    label: 'menu.book-clubs',
-    to: `${adminRoot}/clubs`
-  },
+    to: `reading`
+  }
 ];
 export default data;
