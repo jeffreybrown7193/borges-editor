@@ -4,11 +4,8 @@ const app = express();
 const bodyParser = require('body-parser');
 const methodOverride = require('method-override');
 
-// db configuration ===========================================
-require('./db-config/db-config');
-
 // define mongoose schema
-require('./db-config/schema/projectSchema');
+require('./schema/projectSchema');
 
 // set our port
 const port = process.env.PORT || 4201;
