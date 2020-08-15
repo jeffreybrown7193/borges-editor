@@ -14,6 +14,7 @@ export const environment = {
   menuHiddenBreakpoint: 768,
   themeColorStorageKey: 'vien-themecolor',
   isMultiColorActive: false,
+  myEndpoint: 'localhost:4201',
   /*
   Color Options:
   'light.blueyale', 'light.blueolympic', 'light.bluenavy', 'light.greenmoss', 'light.greenlime', 'light.yellowgranola', 'light.greysteel', 'light.orangecarrot', 'light.redruby', 'light.purplemonster'

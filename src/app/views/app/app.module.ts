@@ -7,10 +7,11 @@ import { LayoutContainersModule } from 'src/app/containers/layout/layout.contain
 import { ProjectDashboardComponent } from 'src/app/views/app/projects/project-dashboard/project-dashboard.component';
 import { ComponentsModule } from 'src/app/components/components.module';
 import { ReadingListsComponent } from './reading-lists/reading-lists.component';
+import { ProjectStudioComponent } from './projects/project-studio/project-studio.component';
 
 
 @NgModule({
-  declarations: [AppComponent, ProjectDashboardComponent, ReadingListsComponent],
+  declarations: [AppComponent, ProjectDashboardComponent, ReadingListsComponent, ProjectStudioComponent],
   imports: [
     CommonModule,
     AppRoutingModule,

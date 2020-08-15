@@ -23,7 +23,7 @@ const data: IMenuItem[] = [
     id: 'reading-lists',
     icon: 'iconsminds-check',
     label: 'menu.reading-lists',
-    to: `reading`
+    to: `/reading`
   }
 ];
 export default data;
