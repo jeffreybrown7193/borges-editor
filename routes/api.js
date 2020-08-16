@@ -1,20 +1,27 @@
 const express = require('express');
+var assert = require('assert');
 const app = express();
 const bodyParser = require('body-parser');
-const MongoClient = require('mongodb').MongoClient;
-const uri = "mongodb+srv://jeffreyallanbrown:<password>@borges.na4zy.gcp.mongodb.net/<dbname>?retryWrites=true&w=majority";
+const mongoose = require('mongoose');
+const uri = "mongodb+srv://jeffreyallanbrown:LittleDusty2021!@borges.na4zy.gcp.mongodb.net/borges?retryWrites=true&w=majority";
+const WritingProject = require('../schema/projectSchema');
 require('express');
 
 module.exports = function(app){
 
   app.get('/api/projects', (req, res) => {
-    const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
-    client.connect(err => {
-      const collection = client.db("borges");
-      res.send(collection);
-      client.close();
+
+    mongoose.connect(uri, { useUnifiedTopology: true, useNewUrlParser: true });
+    const db = mongoose.connection;
+    db.on('error', console.error.bind(console, 'connection error:'));
+
+    db.once('open', function() {
+
+      WritingProject.find({}, function (err, projects) {
+        if (err) return console.error(err);
+        res.send(projects);
+      });
+
     });
   });
-
-  //other routes..
 }
