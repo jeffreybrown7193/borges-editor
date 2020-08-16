@@ -9,14 +9,22 @@ import { ProjectService } from '../../../controllers/project.service';
 
 export class ProjectsListItemComponent implements OnInit {
 
-  constructor(private projectService: ProjectService) {
-    this.getData();
+  returnedData: any;
+  projectsList: object;
+  projects: any;
+
+  constructor(public projectService: ProjectService) {
+
   }
 
-  ngOnInit() { }
+  ngOnInit() {
+    return this.getData();
+  };
 
-  getData(): void {
-    this.projectService.getProject();
+  getData() {
+    this.projectService.getProject().subscribe((projectsList) => {
+      this.projectsList = projectsList;
+    });
   }
 
 }
