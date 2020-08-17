@@ -1,20 +1,21 @@
 import { Component, OnInit } from '@angular/core';
-import { ProjectService } from '../../../controllers/project.service';
+import { Router, Event, NavigationEnd, ActivatedRoute } from '@angular/router';
+import { ProjectService } from '../../../services/project.service';
 
 @Component({
   selector: 'app-projects-list-item',
   templateUrl: './projects-list-item.component.html',
-  styleUrls: ['./projects-list-item.component.scss']
+  styleUrls: ['./projects-list-item.component.scss'],
+  providers: [ProjectService]
 })
 
 export class ProjectsListItemComponent implements OnInit {
-
-  returnedData: any;
   projectsList: object;
-  projects: any;
-
-  constructor(public projectService: ProjectService) {
-
+  constructor(
+    public projectService: ProjectService,
+    public id: number,
+    public name: string
+    ) {
   }
 
   ngOnInit() {
@@ -22,7 +23,7 @@ export class ProjectsListItemComponent implements OnInit {
   };
 
   getData() {
-    this.projectService.getProject().subscribe((projectsList) => {
+    this.projectService.getProjects().subscribe((projectsList) => {
       this.projectsList = projectsList;
     });
   }
