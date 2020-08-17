@@ -1,12 +1,15 @@
 const mongoose = require('mongoose');
 
-const writingProjectsSchema = new mongoose.Schema({
+const WritingProjectsSchema = new mongoose.Schema({
   projectUser: String,
   name: String,
   type: String,
   description: String
+},
+{
+  collection: "writingProjects"
 });
 
-const writingProject = new mongoose.model("writingProject",writingProjectsSchema);
+const WritingProject = new mongoose.model("WritingProject", WritingProjectsSchema);
 
-exports.writingProject = writingProject;
+module.exports = WritingProject;

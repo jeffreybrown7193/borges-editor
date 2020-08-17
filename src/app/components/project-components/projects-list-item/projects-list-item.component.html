@@ -1,24 +1,20 @@
-<div>
+<div *ngFor="let project of projectsList">
   <div class="row mb-2">
     <div class="col-md-12 mb-4">
       <div class="card d-flex flex-row">
-        <div class="pl-2 d-flex flex-grow-1 min-width-zero">
-          <div class="card-body align-self-center d-flex flex-column flex-lg-row justify-content-between min-width-zero align-items-lg-center">
-            <a routerlink="./" class="w-40 w-sm-100" href="">
-              <p class="list-item-heading mb-1 truncate">Project Name</p>
-            </a>
-            <p class="mb-1 text-muted text-small w-15 w-sm-100">Description</p>
-            <p class="mb-1 text-muted text-small w-15 w-sm-100">09.04.2018</p>
-            <div class="w-15 w-sm-100">
-              <span class="badge badge-pill badge-secondary">DRAFT</span>
+        <div class="d-flex flex-grow-1 min-width-zero">
+          <div class="card-body align-self-center d-flex flex-column flex-md-row justify-content-between min-width-zero align-items-md-center">
+            <a href="/project-studio/{{ project.name }}" class="list-item-heading mb-0 truncate w-40 w-xs-100"> {{ project.name }} </a>
+            <p class="mb-0 text-muted text-small w-15 w-xs-100">{{project.description}}</p>
+            <p class="mb-0 text-muted text-small w-15 w-xs-100">{{project.dateCreated}}</p>
+            <div class="w-15 w-xs-100">
+              <span class="badge badge-pill badge-secondary">{{project.status}}</span>
             </div>
           </div>
-          <div class="custom-control custom-checkbox pl-1 align-self-center pr-4">
-            <label class="custom-control custom-checkbox mb-0">
-              <input type="checkbox" class="custom-control-input">
-              <span class="custom-control-label"></span>
-            </label>
-          </div>
+          <label class="custom-control custom-checkbox mb-1 align-self-center pr-4">
+            <input type="checkbox" class="custom-control-input" id="{{ project._id}}">
+            <label class="custom-control-label" for="{{ project._id}}"></label>
+          </label>
         </div>
       </div>
     </div>

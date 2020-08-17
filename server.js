@@ -4,8 +4,7 @@ const app = express();
 const bodyParser = require('body-parser');
 const methodOverride = require('method-override');
 
-// define mongoose schema
-require('./schema/projectSchema');
+// routes ==================================================
 
 // set our port
 const port = process.env.PORT || 4201;
@@ -25,14 +24,10 @@ app.use(methodOverride('X-HTTP-Method-Override'));
 // set the static files location
 app.use(express.static(__dirname + '/src/app/assets'));
 
-// routes ==================================================
-require('./routes/api')(app); // configure our routes
+require('./routes/api')(app);
 
 // start app ===============================================
 app.listen(port);
 
 // shoutout to the user
 console.log('Okay...Listening on port ' + port);
-
-// expose app
-exports = module.exports = app;
