@@ -13,8 +13,7 @@ export class ProjectsListItemComponent implements OnInit {
   projectsList: object;
   constructor(
     public projectService: ProjectService,
-    public id: number,
-    public name: string
+
     ) {
   }
 
@@ -23,7 +22,7 @@ export class ProjectsListItemComponent implements OnInit {
   };
 
   getData() {
-    this.projectService.getProjects().subscribe((projectsList) => {
+    this.projectService.getAllProjects().subscribe((projectsList) => {
       this.projectsList = projectsList;
     });
   }

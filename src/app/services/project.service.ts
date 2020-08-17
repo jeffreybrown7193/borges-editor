@@ -16,7 +16,7 @@ export class ProjectService {
   public projects: IProjectsResponse[];
   constructor(private http: HttpClient) { }
 
-  getProject() {
+  getAllProjects() {
     if (environment.production == true) {
       return this.http.get('/api/projects');
     } else {
