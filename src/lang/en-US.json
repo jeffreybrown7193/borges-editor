@@ -27,6 +27,8 @@
     "app": "Home",
     "projects": "Projects",
     "new-project": "New Project",
+    "projects-dashboard": "My Projects",
+    "project-studio": "Project Composer",
     "reading-lists": "Reading Lists",
     "book-clubs": "Book Clubs",
     "start": "Start",

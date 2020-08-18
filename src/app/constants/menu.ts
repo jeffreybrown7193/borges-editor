@@ -16,14 +16,14 @@ const data: IMenuItem[] = [
   {
     id: 'projects',
     icon: 'iconsminds-books',
-    label: 'menu.projects',
+    label: 'menu.projects-dashboard',
     to: `${adminRoot}`
   },
   {
     id: 'reading-lists',
     icon: 'iconsminds-check',
     label: 'menu.reading-lists',
-    to: `/reading`
+    to: `/reading-lists`
   }
 ];
 export default data;

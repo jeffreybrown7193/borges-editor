@@ -9,6 +9,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { AngularFireModule } from '@angular/fire';
 import { environment } from 'src/environments/environment';
 import { LayoutContainersModule } from './containers/layout/layout.containers.module';
+import { RouterModule, RouterOutlet } from '@angular/router';
+import { StoreModule } from '@ngrx/store';
 
 @NgModule({
   imports: [
@@ -19,7 +21,9 @@ import { LayoutContainersModule } from './containers/layout/layout.containers.mo
     BrowserAnimationsModule,
     TranslateModule.forRoot(),
     HttpClientModule,
-    AngularFireModule.initializeApp(environment.firebase)
+    AngularFireModule.initializeApp(environment.firebase),
+    RouterModule,
+    StoreModule.forRoot({})
   ],
   declarations: [
     AppComponent

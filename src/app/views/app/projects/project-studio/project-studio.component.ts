@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { createSelector } from '@ngrx/store';
+import { ProjectService } from 'src/app/services/project.service';
+import { Project } from 'src/app/interfaces/project'
 
 @Component({
   selector: 'app-project-studio',
@@ -7,9 +10,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProjectStudioComponent implements OnInit {
 
-  constructor() { }
+  constructor(private ProjectService: ProjectService) { }
 
   ngOnInit(): void {
   }
 
+
+
+
 }
+``

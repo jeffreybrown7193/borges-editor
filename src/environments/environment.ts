@@ -7,7 +7,7 @@ export const environment = {
   production: false,
   buyUrl : "",
   SCARF_ANALYTICS : false,
-  adminRoot: '/projects',
+  adminRoot: '/projects-dashboard',
   apiUrl: '',
   defaultMenuType: 'menu-default',
   subHiddenBreakpoint: 1440,
