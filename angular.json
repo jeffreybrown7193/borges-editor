@@ -19,7 +19,7 @@
           "options": {
             "allowedCommonJsDependencies": [
               "lodash"
-           ],
+            ],
             "outputPath": "dist/Borges",
             "index": "src/index.html",
             "main": "src/main.ts",
@@ -237,5 +237,8 @@
       }
     }
   },
-  "defaultProject": "Borges"
+  "defaultProject": "Borges",
+  "cli": {
+    "defaultCollection": "@ngrx/schematics"
+  }
 }

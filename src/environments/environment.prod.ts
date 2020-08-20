@@ -1,8 +1,3 @@
-// This file can be replaced during build by using the `fileReplacements` array.
-// `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
-// The list of file replacements can be found in `angular.json`.
-import { UserRole } from '../app/shared/auth.roles';
-
 export const environment = {
   production: true,
   buyUrl : "",
@@ -18,17 +13,5 @@ export const environment = {
   defaultColor: 'light.blueyale',
   isDarkSwitchActive: true,
   defaultDirection: 'ltr',
-  themeRadiusStorageKey: 'vien-themeradius',
-  isAuthGuardActive: false,
-  defaultRole: UserRole.Admin,
-  firebase: {
-    apiKey: 'AIzaSyCqoNLB_jTw4nncO12qR-eDH9gAeWiZVaw',
-    authDomain: 'vien-angular-login.firebaseapp.com',
-    databaseURL: 'https://vien-angular-login.firebaseio.com',
-    projectId: 'vien-angular-login',
-    storageBucket: 'vien-angular-login.appspot.com',
-    messagingSenderId: '16217062888',
-    appId: '1:16217062888:web:6b08232ca0c9662fedb85d',
-    measurementId: 'G-8ETT79WRRN'
-  }
+  themeRadiusStorageKey: 'vien-themeradius'
 };

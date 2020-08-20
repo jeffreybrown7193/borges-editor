@@ -3,6 +3,14 @@ const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
 const methodOverride = require('method-override');
+var admin = require("firebase-admin");
+
+var serviceAccount = require("./firebase-service.json");
+
+admin.initializeApp({
+  credential: admin.credential.cert(serviceAccount),
+  databaseURL: "https://borges-6fd48.firebaseio.com"
+});
 
 // routes ==================================================
 

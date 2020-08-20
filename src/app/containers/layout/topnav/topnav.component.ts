@@ -3,7 +3,6 @@ import { Subscription } from "rxjs";
 import { SidebarService, ISidebar } from "../sidebar/sidebar.service";
 import { Router } from "@angular/router";
 import { LangService, Language } from "src/app/shared/lang.service";
-import { AuthService } from "src/app/shared/auth.service";
 import { environment } from "src/environments/environment";
 import { getThemeColor, setThemeColor } from "src/app/utils/util";
 
@@ -26,7 +25,6 @@ export class TopnavComponent implements OnInit, OnDestroy {
 
   constructor(
     private sidebarService: SidebarService,
-    private authService: AuthService,
     private router: Router,
     private langService: LangService
   ) {
@@ -72,11 +70,6 @@ export class TopnavComponent implements OnInit, OnDestroy {
   }
 
   async ngOnInit() {
-    if (await this.authService.getUser()) {
-      this.displayName = await this.authService.getUser().then((user) => {
-        return user.displayName;
-      });
-    }
     this.subscription = this.sidebarService.getSidebar().subscribe(
       (res) => {
         this.sidebar = res;
@@ -124,9 +117,7 @@ export class TopnavComponent implements OnInit, OnDestroy {
   };
 
   onSignOut() {
-    this.authService.signOut().subscribe(() => {
-      this.router.navigate([this.adminRoot]);
-    });
+
   }
 
   searchKeyUp(event: KeyboardEvent) {

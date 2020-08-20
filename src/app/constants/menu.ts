@@ -1,5 +1,4 @@
 import { environment } from 'src/environments/environment';
-import { UserRole } from '../shared/auth.roles';
 const adminRoot = environment.adminRoot;
 
 export interface IMenuItem {
@@ -9,9 +8,7 @@ export interface IMenuItem {
   to: string;
   newWindow?: boolean;
   subs?: IMenuItem[];
-  roles?: UserRole[];
 }
-
 const data: IMenuItem[] = [
   {
     id: 'projects',

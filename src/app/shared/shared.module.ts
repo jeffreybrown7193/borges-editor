@@ -4,9 +4,8 @@ import { ErrorComponent } from '../views/error/error.component';
 import { TranslateModule } from '@ngx-translate/core';
 import { RouterModule } from '@angular/router';
 import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
-import { UnauthorizedComponent } from '../views/unauthorized/unauthorized.component';
 @NgModule({
-  declarations: [ErrorComponent, UnauthorizedComponent],
+  declarations: [ErrorComponent],
   imports: [
     RouterModule,
     CommonModule,
@@ -17,7 +16,6 @@ import { UnauthorizedComponent } from '../views/unauthorized/unauthorized.compon
     PerfectScrollbarModule,
     RouterModule,
     ErrorComponent,
-    UnauthorizedComponent,
     TranslateModule,
     CommonModule,
   ],

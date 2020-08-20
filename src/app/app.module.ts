@@ -1,16 +1,17 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app.routing';
-import { AppComponent } from './app.component';
-import { ViewsModule } from './views/views.module';
+import { RouterModule } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HttpClientModule } from '@angular/common/http';
-import { AngularFireModule } from '@angular/fire';
-import { environment } from 'src/environments/environment';
-import { LayoutContainersModule } from './containers/layout/layout.containers.module';
-import { RouterModule, RouterOutlet } from '@angular/router';
 import { StoreModule } from '@ngrx/store';
+import { AppComponent } from './app.component';
+import { ViewsModule } from './views/views.module';
+import { HttpClientModule } from '@angular/common/http';
+import { LayoutContainersModule } from './containers/layout/layout.containers.module';
+import { ProjectReducer } from './reducers/project.reducers';
+
+
 
 @NgModule({
   imports: [
@@ -21,9 +22,8 @@ import { StoreModule } from '@ngrx/store';
     BrowserAnimationsModule,
     TranslateModule.forRoot(),
     HttpClientModule,
-    AngularFireModule.initializeApp(environment.firebase),
     RouterModule,
-    StoreModule.forRoot({})
+    StoreModule.forRoot({ projects: ProjectReducer })
   ],
   declarations: [
     AppComponent
@@ -31,7 +31,6 @@ import { StoreModule } from '@ngrx/store';
   exports: [
 
   ],
-  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

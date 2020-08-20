@@ -4,8 +4,6 @@ import { filter, map } from 'rxjs/operators';
 import { SidebarService, ISidebar } from './sidebar.service';
 import menuItems, { IMenuItem } from 'src/app/constants/menu';
 import { Subscription } from 'rxjs';
-import { UserRole } from 'src/app/shared/auth.roles';
-import { AuthService } from 'src/app/shared/auth.service';
 
 @Component({
   selector: 'app-sidebar',
@@ -26,12 +24,9 @@ export class SidebarComponent implements OnInit, OnDestroy {
   constructor(
     private router: Router,
     private sidebarService: SidebarService,
-    private activatedRoute: ActivatedRoute,
-    private authService: AuthService
+    private activatedRoute: ActivatedRoute
   ) {
-    this.authService.getUser().then((user) => {
-      this.currentUser = user;
-    });
+
 
     this.subscription = this.sidebarService.getSidebar().subscribe(
       (res) => {
@@ -296,10 +291,6 @@ export class SidebarComponent implements OnInit, OnDestroy {
 
   filteredMenuItems(menuItems: IMenuItem[]) {
     return menuItems
-      ? menuItems.filter(
-          (x) =>
-            !x.roles || (x.roles && x.roles.includes(this.currentUser.role))
-        )
-      : [];
+
   }
 }
