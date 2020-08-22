@@ -5,13 +5,13 @@ import { RouterModule } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
 import { AppComponent } from './app.component';
 import { ViewsModule } from './views/views.module';
 import { HttpClientModule } from '@angular/common/http';
 import { LayoutContainersModule } from './containers/layout/layout.containers.module';
-import { ProjectReducer } from './reducers/project.reducers';
-
-
+import { reducer } from './reducers/projects.reducers';
+import { ProjectEffects } from './effects/projects.effects';
 
 @NgModule({
   imports: [
@@ -23,7 +23,9 @@ import { ProjectReducer } from './reducers/project.reducers';
     TranslateModule.forRoot(),
     HttpClientModule,
     RouterModule,
-    StoreModule.forRoot({ projects: ProjectReducer })
+    StoreModule.forRoot({ projects: reducer }),
+    EffectsModule.forRoot([ProjectEffects])
+
   ],
   declarations: [
     AppComponent

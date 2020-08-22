@@ -1,22 +1,20 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { environment } from '../../environments/environment'
+import { Observable } from 'rxjs';
+import { Project } from '../interfaces/project';
+import { tap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
-export class ProjectService {
-  projectsList: Object;
+export class ProjectsService {
+  baseUrl = 'https://www.googleapis.com/books/v1/volumes?q=davidfosterwallace';
   constructor( private http: HttpClient) { }
 
-  //returns all projects in database
-  getAllProjects() {
-    if (environment.production == true) {
-      return this.http.get('/api/projects');
-    } else {
-      return this.http.get('http://localhost:4201/api/projects');
-    }
+  getAll(): Observable<Project[]>{
+    return this.http.get<Project[]>(this.baseUrl)
+      .pipe(
+        tap(projects => {return projects})
+      );
   }
-  //
-
 }

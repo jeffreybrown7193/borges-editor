@@ -1,10 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-import { ProjectService } from 'src/app/services/project.service';
-import { Store, select, Action } from '@ngrx/store';
+import { Component, OnInit, Input } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Project } from 'src/app/interfaces/project';
-import { Get_Projects, Select_Project, Create_Project } from 'src/app/actions/projects.actions';
-import { ProjectReducer, ProjectState } from 'src/app/reducers/project.reducers';
+import { Store, State } from '@ngrx/store';
+import { Project, Projects } from 'src/app/interfaces/project';
+import { loadProjectsAction } from 'src/app/actions/projects.actions';
+import { AppState, initialState } from 'src/app/states/states'
 
 @Component({
   selector: 'app-projects-list-item',
@@ -13,26 +12,22 @@ import { ProjectReducer, ProjectState } from 'src/app/reducers/project.reducers'
 })
 
 export class ProjectsListItemComponent implements OnInit {
+  projects$: Observable<any>;
+  @Input() projects: Project[];
 
-  constructor(private store: Store<ProjectState>) { }
+
+  constructor(private store: Store<AppState>) {
+    this.projects$ = this.store.select('projects');
+  }
 
   ngOnInit() {
-    this.ProjectState$ = this.store.pipe(select('projects'));
-
-    let getProjectAction: Action = {
-      type: Get_Projects
-    }
-
-    this.ProjectSubscription = this.ProjectState$.pipe(map(x => this.ProjectsList = x.ProjectsList)).subscribe();
-    this.store.dispatch(getProjectAction);
-
+    this.getProjects();
+    this.projects$.subscribe((state:AppState) => this.projects = initialState.projects);
   }
 
-  ProjectState$: Observable<ProjectState>;
-  ProjectSubscription: Subscription;
-  ProjectList: Project[];
-
-  ngOnDestroy() {
-      this.ProjectSubscription.unsubscribe();
+  getProjects() {
+    console.log(this.store)
+    this.store.dispatch(new loadProjectsAction());
   }
+
 }
