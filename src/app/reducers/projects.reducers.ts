@@ -1,14 +1,16 @@
 import { ActionsUnion, ActionTypes } from "../actions/projects.actions";
-import { ActionReducerMap, createSelector } from '@ngrx/store';
+import { ActionReducerMap, createSelector, MetaReducer } from '@ngrx/store';
 
 export interface ProjectDataState {
   projects: string[];
+  selectedProject: string;
   loading: boolean;
   error: any;
 }
 
 export const InitialState: ProjectDataState = {
   projects: [],
+  selectedProject: '',
   loading: false,
   error: null
 };
@@ -42,6 +44,15 @@ export function reducer(
       };
     }
 
+    case ActionTypes.SelectProjectData: {
+      return {
+        ...state,
+        loading: false,
+        selectedProject: action.payload.selectedProject,
+        error: null
+      };
+    }
+
     default: {
       return state;
     }
@@ -49,6 +60,7 @@ export function reducer(
 }
 
 export const getProjects = (state: ProjectDataState) => state.projects;
+export const getSelectedProject = (state: ProjectDataState) => state.selectedProject;
 
 export interface AppState {
   data: ProjectDataState;
