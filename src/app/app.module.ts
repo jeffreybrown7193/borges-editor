@@ -10,7 +10,7 @@ import { AppComponent } from './app.component';
 import { ViewsModule } from './views/views.module';
 import { HttpClientModule } from '@angular/common/http';
 import { LayoutContainersModule } from './containers/layout/layout.containers.module';
-import { reducer } from './reducers/projects.reducers';
+import { reducers, metaReducers } from './reducers/index.reducers';
 import { ProjectEffects } from './effects/projects.effects';
 
 @NgModule({
@@ -23,7 +23,7 @@ import { ProjectEffects } from './effects/projects.effects';
     TranslateModule.forRoot(),
     HttpClientModule,
     RouterModule,
-    StoreModule.forRoot({ projects: reducer }),
+    StoreModule.forRoot(reducers, { metaReducers }),
     EffectsModule.forRoot([ProjectEffects])
 
   ],

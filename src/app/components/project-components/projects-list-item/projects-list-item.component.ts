@@ -1,9 +1,12 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, VirtualTimeScheduler } from 'rxjs';
 import { Store, State } from '@ngrx/store';
 import { Project, Projects } from 'src/app/interfaces/project';
-import { loadProjectsAction } from 'src/app/actions/projects.actions';
 import { AppState, initialState } from 'src/app/states/states'
+import { LoadProjectDataBegin } from 'src/app/actions/projects.actions';
+import { ProjectDataService } from 'src/app/services/project-data.service';
+import { toArray } from 'rxjs/operators';
+import { JsonPipe } from '@angular/common';
 
 @Component({
   selector: 'app-projects-list-item',
@@ -12,22 +15,15 @@ import { AppState, initialState } from 'src/app/states/states'
 })
 
 export class ProjectsListItemComponent implements OnInit {
-  projects$: Observable<any>;
-  @Input() projects: Project[];
+  public projectsList = {}
+  public projects: any
 
+  constructor(private store: Store<AppState>, private projectsService: ProjectDataService) {
 
-  constructor(private store: Store<AppState>) {
-    this.projects$ = this.store.select('projects');
   }
 
   ngOnInit() {
-    this.getProjects();
-    this.projects$.subscribe((state:AppState) => this.projects = initialState.projects);
-  }
-
-  getProjects() {
-    console.log(this.store)
-    this.store.dispatch(new loadProjectsAction());
+    return this.projectsService.loadProjectData().subscribe(data => this.projects = data.items);
   }
 
 }
