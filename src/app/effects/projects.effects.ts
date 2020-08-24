@@ -1,25 +1,34 @@
 import { Injectable } from '@angular/core';
-import { Action } from '@ngrx/store';
 import { Actions, ofType, Effect } from '@ngrx/effects';
-import { loadProjectsAction, loadProjects, loadProjectsSuccessAction, loadProjectsSuccess } from '../actions/projects.actions';
-import { Observable } from 'rxjs';
-import { ProjectsService } from '../services/project.service';
-import { map, mergeMap } from 'rxjs/operators';
+import { ActionTypes, LoadProjectDataFailure, LoadProjectDataSuccess, SelectProjectData } from '../actions/projects.actions';
+import { of } from 'rxjs';
+import { ProjectDataService } from '../services/project-data.service';
+import { map, switchMap, catchError, timestamp } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProjectEffects {
-  constructor(private projectService: ProjectsService,
-    private actions$: Actions
+  constructor(private projectDataService: ProjectDataService,
+    private actions: Actions
   ) {}
 
+  @Effect()
+  getProjects = this.actions.pipe(
+    ofType(ActionTypes.LoadProjectData),
+    switchMap(() => {
+      return this.projectDataService.loadProjectData().pipe(
+        map(projectData => new LoadProjectDataSuccess({ projectData: projectData })),
+        catchError(error =>
+          of(new LoadProjectDataFailure({ error: error }))
+        )
+      );
+    })
+  );
 
-  @Effect() loadProjects$: Observable<Action> = this.actions$.pipe(
-    ofType<loadProjectsAction>(loadProjects),
-    mergeMap(() => this.projectService.getAll().pipe(
-      map(projects => (new loadProjectsSuccessAction(projects)))
-    ))
-  )
+  @Effect()
+  selectProjectData = this.actions.pipe(
+    ofType(ActionTypes.SelectProjectData),
+    map((projectData => new SelectProjectData({ selectedProject: projectData}))));
 
 }
