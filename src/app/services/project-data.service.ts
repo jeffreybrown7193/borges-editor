@@ -2,16 +2,17 @@ import { HttpClient } from '@angular/common/http';
 import { Store } from "@ngrx/store";
 import { Injectable } from '@angular/core';
 import * as ProjectActions from '../actions/projects.actions';
-import { getLoadedProjectDataState, getAllProjectData, AppState } from '../reducers/projects.reducers';
+import { getLoadedProjectDataState, getAllProjectData, AppState, getSelectedProject } from '../reducers/projects.reducers';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProjectDataService {
-  baseUrl = 'https://www.googleapis.com/books/v1/volumes?q=davidfosterwallace';
+  baseUrl = 'http://localhost:4201/api/projects';
   constructor( private store: Store<AppState>, private http: HttpClient) { }
 
-  loadProjectData() {
+  loadProjectData(): Observable<any> {
     return this.http.get(this.baseUrl);
   }
 
@@ -25,5 +26,9 @@ export class ProjectDataService {
 
   getAllLoadedProjects() {
     return this.store.select(getAllProjectData);
+  }
+
+  selectProject(project) {
+    this.store.dispatch(new ProjectActions.SelectProjectData(project))
   }
 }

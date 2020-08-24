@@ -3,14 +3,14 @@ import { ActionReducerMap, createSelector, MetaReducer } from '@ngrx/store';
 
 export interface ProjectDataState {
   projects: string[];
-  selectedProject: string;
+  selectedProject: number;
   loading: boolean;
   error: any;
 }
 
 export const InitialState: ProjectDataState = {
   projects: [],
-  selectedProject: '',
+  selectedProject: 0,
   loading: false,
   error: null
 };

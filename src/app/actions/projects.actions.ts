@@ -3,7 +3,8 @@ import { Action } from "@ngrx/store";
 export enum ActionTypes {
   LoadProjectData = "[Project Data] Load Project Data Begin",
   LoadProjectDataSuccess = "[Project Data] Load Project Data Success",
-  LoadProjectDataFailure = "[Project Data] Load Project Data Failure"
+  LoadProjectDataFailure = "[Project Data] Load Project Data Failure",
+  SelectProjectData = "[Project Data] Select Project Data"
 }
 
 export class LoadProjectDataBegin implements Action {
@@ -20,4 +21,9 @@ export class LoadProjectDataFailure implements Action {
   constructor(public payload: { error: any }) {}
 }
 
-export type ActionsUnion = LoadProjectDataBegin | LoadProjectDataSuccess | LoadProjectDataFailure;
+export class SelectProjectData implements Action {
+  readonly type = ActionTypes.SelectProjectData;
+  constructor(public payload: { selectedProject: number }) {}
+}
+
+export type ActionsUnion = LoadProjectDataBegin | LoadProjectDataSuccess | LoadProjectDataFailure | SelectProjectData;
