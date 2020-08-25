@@ -1,77 +1,51 @@
-import { ActionsUnion, ActionTypes } from "../actions/projects.actions";
-import { ActionReducerMap, createSelector, MetaReducer } from '@ngrx/store';
+import { LoadProjects, ProjectActionTypes, ActionsUnion } from "../actions/projects.actions";
+import { ActionReducerMap, MetaReducer } from '@ngrx/store';
+import { environment } from 'src/environments/environment';
 
-export interface ProjectDataState {
-  projects: string[];
-  selectedProject: number;
-  loading: boolean;
-  error: any;
+export interface ProjectState {
+  projectData: any | null;
+  error: string | null;
 }
 
-export const InitialState: ProjectDataState = {
-  projects: [],
-  selectedProject: 0,
-  loading: false,
+const InitialProjectState: ProjectState = {
+  projectData: null,
   error: null
 };
 
-export function reducer(
-  state = InitialState,
-  action: ActionsUnion
-): ProjectDataState {
+export interface AppState {
+  projects: ProjectState
+}
+
+
+export function projectReducer(state: ProjectState = InitialProjectState, action: ActionsUnion): ProjectState {
   switch (action.type) {
-    case ActionTypes.LoadProjectData: {
+    case ProjectActionTypes.LoadProjects:
       return {
-        ...state,
-        loading: true,
+        projectData: state,
         error: null
-      };
-    }
+      }
 
-    case ActionTypes.LoadProjectDataSuccess: {
+    case ProjectActionTypes.LoadProjectsSuccess:
       return {
-        ...state,
-        loading: false,
-        projects: action.payload.projectData
-      };
-    }
-
-    case ActionTypes.LoadProjectDataFailure: {
-      return {
-        ...state,
-        loading: false,
-        error: action.payload.error
-      };
-    }
-
-    case ActionTypes.SelectProjectData: {
-      return {
-        ...state,
-        loading: false,
-        selectedProject: action.payload.selectedProject,
+        projectData: action.payload.projectData,
         error: null
-      };
-    }
+      }
 
-    default: {
+    default:
       return state;
-    }
   }
 }
 
-export const getProjects = (state: ProjectDataState) => state.projects;
-export const getSelectedProject = (state: ProjectDataState) => state.selectedProject;
 
-export interface AppState {
-  data: ProjectDataState;
-}
 
 export const reducers: ActionReducerMap<AppState> = {
-  data: reducer
-};
+  projects: projectReducer
+}
 
-export const getLoadedProjectDataState = (state: AppState) => state.data;
-export const getAllProjectData = createSelector(
-  getLoadedProjectDataState,
-  getProjects
-);
+export const selectProjects = (state: AppState) => state.projects.projectData;
+export const selectError = (state: AppState) => state.projects.error;
+
+
+
+
+export const metaReducers: MetaReducer<any>[] = !environment.production ? [] : [];

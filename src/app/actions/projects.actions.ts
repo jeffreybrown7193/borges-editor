@@ -1,29 +1,31 @@
-import { Action } from "@ngrx/store";
+import { Action } from '@ngrx/store';
+import { Project } from '../interfaces/project';
 
-export enum ActionTypes {
-  LoadProjectData = "[Project Data] Load Project Data Begin",
-  LoadProjectDataSuccess = "[Project Data] Load Project Data Success",
-  LoadProjectDataFailure = "[Project Data] Load Project Data Failure",
-  SelectProjectData = "[Project Data] Select Project Data"
+export enum ProjectActionTypes {
+  LoadProjects = '[Project Dashboard] Load Projects',
+  LoadProjectsSuccess = '[Project Dashboard] Load Projects Success',
+  ProjectsError = '[Project Dashboard] Projects Error'
 }
 
-export class LoadProjectDataBegin implements Action {
-  readonly type = ActionTypes.LoadProjectData;
+export class LoadProjects implements Action {
+  readonly type = ProjectActionTypes.LoadProjects;
+  constructor({ }) {
+  }
 }
 
-export class LoadProjectDataSuccess implements Action {
-  readonly type = ActionTypes.LoadProjectDataSuccess;
-  constructor(public payload: { projectData: any }) {}
+export class LoadProjectsSuccess implements Action {
+  readonly type = ProjectActionTypes.LoadProjectsSuccess;
+  constructor(readonly payload: { projectData: any }) {
+
+  }
 }
 
-export class LoadProjectDataFailure implements Action {
-  readonly type = ActionTypes.LoadProjectDataFailure;
-  constructor(public payload: { error: any }) {}
+export class ProjectsError implements Action {
+  readonly type = ProjectActionTypes.ProjectsError;
+
+  constructor(readonly payload: { error: string }) {
+
+  }
 }
 
-export class SelectProjectData implements Action {
-  readonly type = ActionTypes.SelectProjectData;
-  constructor(public payload: { selectedProject: number }) {}
-}
-
-export type ActionsUnion = LoadProjectDataBegin | LoadProjectDataSuccess | LoadProjectDataFailure | SelectProjectData;
+export type ActionsUnion = LoadProjects | LoadProjectsSuccess | ProjectsError;

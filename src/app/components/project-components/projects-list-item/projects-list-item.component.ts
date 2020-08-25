@@ -1,10 +1,11 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { Observable, VirtualTimeScheduler } from 'rxjs';
-import { Store, State, select } from '@ngrx/store';
-import { AppState, initialState } from 'src/app/states/states'
+import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Store } from '@ngrx/store';
 import { ProjectDataService } from 'src/app/services/project-data.service';
-import { Projects, Project } from 'src/app/interfaces/project';
-import { LoadProjectDataBegin, SelectProjectData } from 'src/app/actions/projects.actions';
+import { Project } from 'src/app/interfaces/project';
+import { AppState, ProjectState } from 'src/app/reducers/projects.reducers';
+import { LoadProjects } from 'src/app/actions/projects.actions';
+import { toArray, map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-projects-list-item',
@@ -13,19 +14,28 @@ import { LoadProjectDataBegin, SelectProjectData } from 'src/app/actions/project
 })
 
 export class ProjectsListItemComponent implements OnInit {
-  projects: Observable<any>;
-  loadedProjects: Array<any>;
-  project: Project[];
+  projects: Observable<Project[]>;
+  loadedProjects: Project[];
+  project: ProjectState;
 
-  constructor(private store: Store<AppState>, private projectsService: ProjectDataService) {}
+  constructor(private store: Store<AppState>) {
+    this.store.dispatch(new LoadProjects({projectData: null}));
+  }
 
   ngOnInit() {
-    return this.store.dispatch(new LoadProjectDataBegin());
+    this.store.select('projects').subscribe((projects) => {
+      this.projects = projects.projectData;
+      this.useProjects(this.projects);
+    });
   }
 
-  selectProject(_id){
-    this.projectsService.selectProject(_id);
-    return this.store.dispatch(new SelectProjectData(_id));
+  useProjects(projects:any){
+    return this.loadedProjects = projects;
   }
+
+  onSelect(project){
+    console.log(this.project);
+  }
+
 
 }

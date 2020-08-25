@@ -13,8 +13,3 @@ export interface Project {
   created?: Date,
   updated?: Date
 }
-
-export interface Projects {
-  projects: Project[];
-}
-
