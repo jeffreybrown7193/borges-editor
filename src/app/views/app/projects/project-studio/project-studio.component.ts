@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { createSelector } from '@ngrx/store';
-import { Project } from 'src/app/interfaces/project'
+import { Observable } from 'rxjs';
+import { Store } from '@ngrx/store';
+import { Project } from 'src/app/interfaces/project';
+import { AppState } from 'src/app/reducers/projects.reducers';
 
 @Component({
   selector: 'app-project-studio',
@@ -8,14 +10,25 @@ import { Project } from 'src/app/interfaces/project'
   styleUrls: ['./project-studio.component.scss']
 })
 export class ProjectStudioComponent implements OnInit {
+  projects: Observable<Project[]>;
+  selectedProject: any;
+  public project:Project;
 
-  constructor() { }
 
-  ngOnInit(): void {
+  constructor(private store: Store<AppState>) {
+
   }
 
+  ngOnInit() {
+    this.store.select('projects').subscribe((projects) => {
+      this.projects = projects.selectedProject;
+      this.useSelectedProject(this.projects);
+    });
 
+  }
 
+  useSelectedProject(projects:any){
+    return this.project = projects.payload.selectedProject;
+  }
 
 }
-``

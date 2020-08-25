@@ -34,7 +34,7 @@ import { environment } from '../environments/environment';
     AppComponent
   ],
   exports: [
-
+    AppComponent
   ],
   bootstrap: [AppComponent]
 })

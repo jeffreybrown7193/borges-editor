@@ -1,11 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Store } from '@ngrx/store';
-import { ProjectDataService } from 'src/app/services/project-data.service';
 import { Project } from 'src/app/interfaces/project';
-import { AppState, ProjectState } from 'src/app/reducers/projects.reducers';
-import { LoadProjects } from 'src/app/actions/projects.actions';
-import { toArray, map } from 'rxjs/operators';
+import { AppState } from 'src/app/reducers/projects.reducers';
+import { LoadProjects, SelectProject } from 'src/app/actions/projects.actions';
 
 @Component({
   selector: 'app-projects-list-item',
@@ -16,10 +14,9 @@ import { toArray, map } from 'rxjs/operators';
 export class ProjectsListItemComponent implements OnInit {
   projects: Observable<Project[]>;
   loadedProjects: Project[];
-  project: ProjectState;
 
   constructor(private store: Store<AppState>) {
-    this.store.dispatch(new LoadProjects({projectData: null}));
+    this.store.dispatch(new LoadProjects({}));
   }
 
   ngOnInit() {
@@ -34,8 +31,7 @@ export class ProjectsListItemComponent implements OnInit {
   }
 
   onSelect(project){
-    console.log(this.project);
+    this.store.dispatch(new SelectProject({ selectedProject: project }));
   }
-
 
 }
