@@ -9,99 +9,99 @@ export interface ICake {
 const data: ICake[] = [
   {
     title: 'Marble Cake',
-    link: `${adminRoot}/#`,
+    link: `${adminRoot}/pages/product/details`,
   },
   {
     title: 'Fruitcake',
-    link: `${adminRoot}/#`,
+    link: `${adminRoot}/pages/product/details`,
   },
   {
     title: 'Chocolate Cake',
-    link: `${adminRoot}/#`,
+    link: `${adminRoot}/pages/product/details`,
   },
   {
     title: 'Fat Rascal',
-    link: `${adminRoot}/#`,
+    link: `${adminRoot}/pages/product/details`,
   },
   {
     title: 'Financier',
-    link: `${adminRoot}/#`,
+    link: `${adminRoot}/pages/product/details`,
   },
   {
     title: 'Genoise',
-    link: `${adminRoot}/#`,
+    link: `${adminRoot}/pages/product/details`,
   },
   {
     title: 'Gingerbread',
-    link: `${adminRoot}/#`,
+    link: `${adminRoot}/pages/product/details`,
   },
   {
     title: 'Goose Breast',
-    link: `${adminRoot}/#`,
+    link: `${adminRoot}/pages/product/details`,
   },
   {
     title: 'Parkin',
-    link: `${adminRoot}/#`,
+    link: `${adminRoot}/pages/product/details`,
   },
   {
     title: 'Salzburger Nockerl',
-    link: `${adminRoot}/#`,
+    link: `${adminRoot}/pages/product/details`,
   },
   {
     title: 'Soufflé',
-    link: `${adminRoot}/#`,
+    link: `${adminRoot}/pages/product/details`,
   },
   {
     title: 'Merveilleux',
-    link: `${adminRoot}/#`,
+    link: `${adminRoot}/pages/product/details`,
   },
   {
     title: 'Streuselkuchen',
-    link: `${adminRoot}/#`,
+    link: `${adminRoot}/pages/product/details`,
   },
   {
     title: 'Tea Loaf',
-    link: `${adminRoot}/#`,
+    link: `${adminRoot}/pages/product/details`,
   },
   {
     title: 'Napoleonshat',
-    link: `${adminRoot}/#`,
+    link: `${adminRoot}/pages/product/details`,
   },
   {
     title: 'Merveilleux',
-    link: `${adminRoot}/#`,
+    link: `${adminRoot}/pages/product/details`,
   },
   {
     title: 'Magdalena',
-    link: `${adminRoot}/#`,
+    link: `${adminRoot}/pages/product/details`,
   },
   {
     title: 'Cremeschnitte',
-    link: `${adminRoot}/#`,
+    link: `${adminRoot}/pages/product/details`,
   },
   {
     title: 'Cheesecake',
-    link: `${adminRoot}/#`,
+    link: `${adminRoot}/pages/product/details`,
   },
   {
     title: 'Bebinca',
-    link: `${adminRoot}/#`,
+    link: `${adminRoot}/pages/product/details`,
   },
   {
     title: 'Salzburger Nockerl',
-    link: `${adminRoot}/#`,
+    link: `${adminRoot}/pages/product/details`,
   },
   {
     title: 'Soufflé',
-    link: `${adminRoot}/#`,
+    link: `${adminRoot}/pages/product/details`,
   },
   {
     title: 'Merveilleux',
-    link: `${adminRoot}/#`,
+    link: `${adminRoot}/pages/product/details`,
   },
   {
     title: 'Streuselkuchen',
-    link: `${adminRoot}/#`,
+    link: `${adminRoot}/pages/product/details`,
   },
 ];
 

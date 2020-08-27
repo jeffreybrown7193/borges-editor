@@ -2,14 +2,13 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app.routing';
-import { SharedModule } from 'src/app/shared/shared.module';
-import { LayoutContainersModule } from 'src/app/containers/layout/layout.containers.module';
-import { ProjectDashboardComponent } from 'src/app/views/app/projects/project-dashboard/project-dashboard.component';
+import { SharedModule } from '../../shared/shared.module';
+import { LayoutContainersModule } from '../../containers/layout/layout.containers.module';
+import { ProjectDashboardComponent } from '../../views/app/projects/project-dashboard/project-dashboard.component';
 import { RouterModule } from '@angular/router';
-import { ComponentsModule } from 'src/app/components/components.module';
+import { ComponentsModule } from '../../components/components.module';
 import { ReadingListsComponent } from './reading-lists/reading-lists.component';
 import { ProjectStudioComponent } from './projects/project-studio/project-studio.component';
-
 
 @NgModule({
   declarations: [AppComponent, ProjectDashboardComponent, ReadingListsComponent, ProjectStudioComponent],

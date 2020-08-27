@@ -1,5 +1,4 @@
 import { Action } from '@ngrx/store';
-import { Project } from '../interfaces/project';
 
 export enum ProjectActionTypes {
   LoadProjects = '[Project Dashboard] Load Projects',

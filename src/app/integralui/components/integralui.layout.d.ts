@@ -1,0 +1,37 @@
+import { ElementRef } from '@angular/core';
+import { IntegralUIBaseComponent } from './integralui.core';
+import { IntegralUICommonService } from '../services/integralui.common.service';
+import { IntegralUIDataService } from '../services/integralui.data.service';
+import * as i0 from "@angular/core";
+export declare class IntegralUILayout extends IntegralUIBaseComponent {
+    protected dataService: IntegralUIDataService;
+    protected elemRef: ElementRef;
+    protected commonService?: IntegralUICommonService;
+    private ctrlData;
+    currentList: Array<any>;
+    private dataPanels;
+    private fullList;
+    protected options: any;
+    protected updateTimer: any;
+    panelTemplate: any;
+    autoUpdate: boolean;
+    set data(value: any);
+    get data(): any;
+    constructor(dataService: IntegralUIDataService, elemRef: ElementRef, commonService?: IntegralUICommonService);
+    ngOnInit(): void;
+    protected updateData(): void;
+    ngAfterContentChecked(): void;
+    protected updateOptions(value?: any): void;
+    protected updateDataFields(fields?: any): void;
+    protected updateCurrentList(): void;
+    private addChildPanels;
+    private addPanelToCurrentList;
+    protected isPanelAllowed(panel: any): boolean;
+    protected resetLayout(): void;
+    updateLayout(): void;
+    private updatePanelLayout;
+    private getCurrentPanelObj;
+    getControlStyle(): any;
+    static ɵfac: i0.ɵɵFactoryDef<IntegralUILayout, never>;
+    static ɵcmp: i0.ɵɵComponentDefWithMeta<IntegralUILayout, "iui-layout", never, { "controlStyle": "controlStyle"; "data": "data"; "enabled": "enabled"; "name": "name"; "size": "size"; "state": "state"; "autoUpdate": "autoUpdate"; }, {}, ["panelTemplate"], never>;
+}

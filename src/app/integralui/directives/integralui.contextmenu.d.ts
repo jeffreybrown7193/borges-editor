@@ -1,0 +1,93 @@
+import { ComponentFactoryResolver, ElementRef, EventEmitter, QueryList, ViewContainerRef } from '@angular/core';
+import { IntegralUIBaseComponent, IntegralUIBaseService, IntegralUITemplate } from '../components/integralui.core';
+import { IntegralUIDirection } from '../components/integralui.core';
+import { IntegralUICommonService } from '../services/integralui.common.service';
+import { IntegralUIDataService } from '../services/integralui.data.service';
+import { IntegralUIMenuItem } from '../components/integralui.menuitem';
+import * as i0 from "@angular/core";
+export declare class IntegralUIContextMenuComponent extends IntegralUIBaseComponent {
+    protected dataService: IntegralUIDataService;
+    protected elemRef: ElementRef;
+    protected commonService?: IntegralUICommonService;
+    protected cmpResolver?: ComponentFactoryResolver;
+    protected baseService?: IntegralUIBaseService;
+    private itemList;
+    blockDisplay: string;
+    blockElemWidth: string;
+    blockElemHeight: string;
+    blockOverflow: string;
+    blockOpacity: number;
+    contentRef: ViewContainerRef;
+    contentList: QueryList<IntegralUIMenuItem>;
+    private tRef;
+    adjustment: {
+        top: number;
+        left: number;
+    };
+    autoClose: boolean;
+    direction: IntegralUIDirection;
+    inverse: boolean;
+    items: Array<any>;
+    itemTemplate: any;
+    mode: string;
+    position: {
+        x: number;
+        y: number;
+    };
+    itemClick: EventEmitter<any>;
+    menuOpened: EventEmitter<any>;
+    menuClosed: EventEmitter<any>;
+    constructor(dataService: IntegralUIDataService, elemRef: ElementRef, commonService?: IntegralUICommonService, cmpResolver?: ComponentFactoryResolver, baseService?: IntegralUIBaseService);
+    ngOnInit(): void;
+    ngAfterViewInit(): void;
+    ngAfterContentInit(): void;
+    ngOnDestroy(): void;
+    onBlur(e: any): void;
+    onRightClick(e: any): void;
+    protected getItemFromComponent(cmp: IntegralUIMenuItem): any;
+    invokeMethod(name: string, value: any): void;
+    getSize(): {
+        width: any;
+        height: any;
+    };
+    adjustPosition(e: any, openMode: string, pos: any, appSize?: any, elemPageRect?: any): void;
+    open(e: any, openMode: string, pos: any, appSize?: any, elemPageRect?: any): void;
+    static ɵfac: i0.ɵɵFactoryDef<IntegralUIContextMenuComponent, never>;
+    static ɵcmp: i0.ɵɵComponentDefWithMeta<IntegralUIContextMenuComponent, "iui-contextmenu", never, { "controlStyle": "controlStyle"; "data": "data"; "state": "state"; "adjustment": "adjustment"; "autoClose": "autoClose"; "direction": "direction"; "inverse": "inverse"; "items": "items"; "itemTemplate": "itemTemplate"; "mode": "mode"; "position": "position"; }, { "itemClick": "itemClick"; "menuOpened": "menuOpened"; "menuClosed": "menuClosed"; }, ["contentList"], never>;
+}
+export declare class IntegralUIContextMenu {
+    protected elemRef: ElementRef;
+    private viewContainer;
+    protected cmpResolver: ComponentFactoryResolver;
+    private currentSettings;
+    private eventList;
+    private isMenuActive;
+    private winScrollPos;
+    templates: QueryList<IntegralUITemplate>;
+    private cmpRef;
+    private templateList;
+    itemTemplate: any;
+    set settings(value: any);
+    get settings(): any;
+    contextMenuRef: any;
+    itemClick: EventEmitter<any>;
+    menuClick: EventEmitter<any>;
+    menuOpening: EventEmitter<any>;
+    menuOpened: EventEmitter<any>;
+    menuClosed: EventEmitter<any>;
+    constructor(elemRef: ElementRef, viewContainer: ViewContainerRef, cmpResolver: ComponentFactoryResolver);
+    ngAfterContentInit(): void;
+    private updateTemplate;
+    ngOnDestroy(): void;
+    getSize(): {
+        width: any;
+        height: any;
+    };
+    closeMenu(e?: any): void;
+    onContextMenu(e: any): void;
+    onMouseDown(e: any): void;
+    processMenuOpen(e: any, position?: string): void;
+    private createMenuList;
+    static ɵfac: i0.ɵɵFactoryDef<IntegralUIContextMenu, never>;
+    static ɵdir: i0.ɵɵDirectiveDefWithMeta<IntegralUIContextMenu, "[iuiContextMenu]", never, { "settings": "iuiContextMenu"; "contextMenuRef": "contextMenuRef"; }, { "itemClick": "itemClick"; "menuClick": "menuClick"; "menuOpening": "menuOpening"; "menuOpened": "menuOpened"; "menuClosed": "menuClosed"; }, ["templates"]>;
+}

@@ -1,0 +1,62 @@
+/* 
+* 
+* CSS files for each component
+* To reduce bundle size, include files only for component in use
+* 
+*/
+
+/* General settings */
+@import 'integralui.css';
+@import 'integralui.dragdrop.css';
+@import 'integralui.editing.css';
+@import 'integralui.filter.css';
+@import 'integralui.sorting.css';
+
+/* Component settings */
+@import 'integralui.accordion.css';
+@import 'integralui.autocomplete.css';
+@import 'integralui.breadcrumb.css';
+@import 'integralui.button.css';
+@import 'integralui.calendar.css';
+@import 'integralui.checkbox.css';
+@import 'integralui.colorpicker.css';
+@import 'integralui.contextmenu.css';
+@import 'integralui.combobox.css';
+@import 'integralui.datepicker.css';
+@import 'integralui.dialog.css';
+@import 'integralui.dropdown.css';
+@import 'integralui.dropdownbutton.css';
+@import 'integralui.editors.css';
+@import 'integralui.frame.css';
+@import 'integralui.grid.css';
+@import 'integralui.groupbox.css';
+@import 'integralui.listbar.css';
+@import 'integralui.listbox.css';
+@import 'integralui.listgroup.css';
+@import 'integralui.listitem.css';
+@import 'integralui.listscroller.css';
+@import 'integralui.listview.css';
+@import 'integralui.menu.css';
+@import 'integralui.numeric-updown.css';
+@import 'integralui.paginator.css';
+@import 'integralui.popover.css';
+@import 'integralui.progressbar.css';
+@import 'integralui.radiobutton.css';
+@import 'integralui.rating.css';
+@import 'integralui.scrollbar.css';
+@import 'integralui.sidebar.css';
+@import 'integralui.slidebar.css';
+@import 'integralui.slider.css';
+@import 'integralui.splitcontainer.css';
+@import 'integralui.splitter.css';
+@import 'integralui.tab.css';
+@import 'integralui.tabstrip.css';
+@import 'integralui.toolbar.css';
+@import 'integralui.toolitem.css';
+@import 'integralui.tooltip.css';
+@import 'integralui.treegrid.css';
+@import 'integralui.treeitem.css';
+@import 'integralui.treelist.css';
+@import 'integralui.treeview.css';
+
+

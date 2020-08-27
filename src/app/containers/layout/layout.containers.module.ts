@@ -6,7 +6,6 @@ import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
 import { TopnavComponent } from './topnav/topnav.component';
 import { TranslateModule } from '@ngx-translate/core';
 import { RouterModule } from '@angular/router';
-import { ColorSwitcherComponent } from './color-switcher/color-switcher.component';
 import { FooterComponent } from './footer/footer.component';
 import { HeadingComponent } from './heading/heading.component';
 import { ApplicationMenuComponent } from './application-menu/application-menu.component';
@@ -21,7 +20,6 @@ import { AvatarModule } from 'ngx-avatar';
     TopnavComponent,
     SidebarComponent,
     BreadcrumbComponent,
-    ColorSwitcherComponent,
     FooterComponent,
     HeadingComponent,
     ApplicationMenuComponent
@@ -41,7 +39,6 @@ import { AvatarModule } from 'ngx-avatar';
     TopnavComponent,
     SidebarComponent,
     BreadcrumbComponent,
-    ColorSwitcherComponent,
     FooterComponent,
     HeadingComponent,
     ApplicationMenuComponent

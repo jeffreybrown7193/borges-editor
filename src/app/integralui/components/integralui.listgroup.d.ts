@@ -1,0 +1,45 @@
+import { ComponentFactoryResolver, ElementRef, QueryList, ViewContainerRef } from '@angular/core';
+import { IntegralUIBaseService, IntegralUIHeaderItem, IntegralUIItem } from './integralui.core';
+import { IntegralUICommonService } from '../services/integralui.common.service';
+import { IntegralUIDataService } from '../services/integralui.data.service';
+import { IntegralUIGroupBox } from './integralui.groupbox';
+import * as i0 from "@angular/core";
+export declare class IntegralUIListGroup extends IntegralUIGroupBox {
+    protected dataService: IntegralUIDataService;
+    protected commonService?: IntegralUICommonService;
+    protected cmpResolver?: ComponentFactoryResolver;
+    protected baseService?: IntegralUIBaseService;
+    private numItems;
+    controlElem: ElementRef;
+    contentRef: ViewContainerRef;
+    contentElem: ElementRef;
+    header: IntegralUIHeaderItem;
+    contentList: QueryList<IntegralUIItem>;
+    private itemList;
+    private itemEventList;
+    protected headerExpandBoxClassName: string;
+    protected itemClassName: string;
+    items: Array<any>;
+    constructor(dataService: IntegralUIDataService, commonService?: IntegralUICommonService, cmpResolver?: ComponentFactoryResolver, baseService?: IntegralUIBaseService);
+    ngOnInit(): void;
+    ngAfterContentInit(): void;
+    ngOnDestroy(): void;
+    ngAfterContentChecked(): void;
+    onHeaderClick(e: any): void;
+    onHeaderExpand(e: any): void;
+    protected toggleContent(): void;
+    private getComponentData;
+    private getItemCurrentIndex;
+    private getItemDataIndex;
+    private attachItemEvents;
+    private updateSelectedItemFromComponent;
+    clearSelection(cmp?: IntegralUIItem): void;
+    getControlStyle(): any;
+    protected getItemGeneralStyle(value: any): any;
+    protected getItemStyle(value: any): {
+        general: any;
+    };
+    protected updateStyle(value: any): void;
+    static ɵfac: i0.ɵɵFactoryDef<IntegralUIListGroup, never>;
+    static ɵcmp: i0.ɵɵComponentDefWithMeta<IntegralUIListGroup, "iui-listgroup", never, { "controlStyle": "controlStyle"; "data": "data"; "enabled": "enabled"; "expandBoxType": "expandBoxType"; "icon": "icon"; "name": "name"; "size": "size"; "state": "state"; "text": "text"; "items": "items"; }, { "afterCollapse": "afterCollapse"; "afterExpand": "afterExpand"; "afterSelect": "afterSelect"; "beforeCollapse": "beforeCollapse"; "beforeExpand": "beforeExpand"; "beforeSelect": "beforeSelect"; "selectedChanged": "selectedChanged"; }, ["contentList"], ["[header]", "*"]>;
+}

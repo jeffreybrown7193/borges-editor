@@ -1,0 +1,30 @@
+import { ElementRef, EventEmitter } from '@angular/core';
+import { IntegralUIBaseValueComponent, IntegralUICheckState } from './integralui.core';
+import { IntegralUICommonService } from '../services/integralui.common.service';
+import * as i0 from "@angular/core";
+export declare class IntegralUICheckBox extends IntegralUIBaseValueComponent {
+    protected elemRef: ElementRef;
+    protected commonService?: IntegralUICommonService;
+    animationState: string;
+    protected buttonClassName: string;
+    protected buttonClass: Array<any>;
+    checked: boolean;
+    checkState: IntegralUICheckState;
+    threeState: boolean;
+    checkedChanged: EventEmitter<any>;
+    checkStateChanged: EventEmitter<any>;
+    constructor(elemRef: ElementRef, commonService?: IntegralUICommonService);
+    ngOnInit(): void;
+    protected initStyle(): void;
+    ngAfterViewInit(): void;
+    protected updateCheckValue(val: any): void;
+    processValueChange(): void;
+    checkMouseDown(e: any): void;
+    getControlStyle(): any;
+    protected updateButtonClass(): void;
+    getButtonClass(): any[];
+    protected getButtonStyle(value: any): any;
+    protected updateStyle(value: any): void;
+    static ɵfac: i0.ɵɵFactoryDef<IntegralUICheckBox, never>;
+    static ɵcmp: i0.ɵɵComponentDefWithMeta<IntegralUICheckBox, "iui-checkbox", never, { "controlStyle": "controlStyle"; "data": "data"; "enabled": "enabled"; "name": "name"; "size": "size"; "state": "state"; "checked": "checked"; "checkState": "checkState"; "threeState": "threeState"; }, { "valueChanged": "valueChanged"; "checkedChanged": "checkedChanged"; "checkStateChanged": "checkStateChanged"; }, never, ["*"]>;
+}

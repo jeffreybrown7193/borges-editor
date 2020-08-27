@@ -1,0 +1,214 @@
+.iui-treegrid-block-left, .iui-treegrid-block-right
+{
+	background: #000000;
+}
+.iui-treegrid-block-top-left .iui-treegrid-column-header, 
+.iui-treegrid-block-top-left .iui-treegrid-column-footer, 
+.iui-treegrid-block-top-right .iui-treegrid-column-header, 
+.iui-treegrid-block-top-right .iui-treegrid-column-footer {
+	background-color: #242424;
+	border: thin solid #121212 !important;
+    color: #b5b5b5;
+}
+.iui-treegrid-block-top-left .iui-treegrid-column-header-hovered, 
+.iui-treegrid-block-top-right .iui-treegrid-column-header-hovered {
+	background-color: #858585;
+	border: thin solid #959595 !important;
+    color: white;
+}
+.iui-treegrid-block-top-left .iui-treegrid-column-header-selected, 
+.iui-treegrid-block-top-right .iui-treegrid-column-header-selected {
+	background-color: #040404;
+	border: thin solid #000000 !important;
+    color: white;
+}
+
+.iui-treegrid-column-header, .iui-treegrid-column-footer
+{
+	color: black;
+}
+.iui-treegrid-column-header
+{
+	border-bottom: thin solid transparent !important;
+}
+.iui-treegrid-column-footer
+{
+	border-top: thin solid transparent !important;
+}
+.iui-treegrid-column-header-hovered, .iui-treegrid-column-header-selected, .iui-treegrid-row-hovered, .iui-treegrid-row-selected
+{
+    animation-name: none;
+}
+.iui-treegrid-column-header-selected
+{
+	color: white !important;
+}
+.iui-treegrid-row-cell:first-child
+{
+	border-left: thin solid #242424;
+}
+.iui-treegrid-row-cell:last-child
+{
+	border-right: thin solid #242424;
+}
+.iui-treegrid-lines-horizontal:not(:last-child)
+{
+	border-left-color: #242424;
+	border-right-color: #242424;
+	border-bottom-color: #242424;
+}
+.iui-treegrid-lines-horizontal:last-child
+{
+	border-left-color: #242424;
+	border-bottom-color: #242424;
+}
+.iui-treegrid-lines-vertical
+{
+	border-right-color: #242424;
+}
+.iui-treegrid-lines-both
+{
+	border-right-color: #242424;
+	border-bottom-color: #242424;
+}
+.iui-treegrid-expand-box-open
+{
+	background: url(../../icons/expandbox-icons.png) no-repeat -16px 0;
+	opacity: 0.5;
+}
+.iui-treegrid-expand-box-open:hover
+{
+	background: url(../../icons/expandbox-icons.png) no-repeat -16px 0;
+	opacity: 0.5;
+}
+.iui-treegrid-expand-box-close
+{
+	background: url(../../icons/expandbox-icons.png) no-repeat -16px -16px;
+}
+.iui-treegrid-expand-box-close:hover
+{
+	background: url(../../icons/expandbox-icons.png) no-repeat -16px -16px;
+}
+.iui-treegrid-row, .iui-treegrid-row-fixed {
+	color: #b5b5b5;
+}
+
+
+.iui-treegrid
+{
+	background-color: #323232;
+	border: thin solid #121212;
+	color: #b5b5b5;
+}
+.iui-treegrid table
+{
+	color: #b5b5b5;
+}
+.iui-treegrid-block
+{
+	background: #323232;
+}
+.iui-treegrid-block-hover {
+	border: thin solid #cecece;
+	box-shadow: 2px 3px 3px #242424;
+	pointer-events: none;
+	position: absolute;
+	z-index: 6;
+}
+.iui-treegrid-block-hover > div {
+	background: #808080;
+}
+.iui-treegrid-column-header, .iui-treegrid-column-footer
+{
+	background-color: #242424;
+	border-color: #121212;
+	color: #b5b5b5;
+}
+.iui-treegrid-column-header-hovered
+{
+	background-color: #858585;
+	border-color: #959595;
+	color: white;
+}
+.iui-treegrid-column-header-selected
+{
+	background-color: #040404;
+	border: thin solid #000000;
+	color: white;
+}
+.iui-treegrid-row
+{
+	color: #b5b5b5;
+}
+.iui-treegrid-row-hovered
+{
+	background-color: #808080;
+	color: black;
+}
+.iui-treegrid-row-selected
+{
+	background-color: #646464;
+	color: white;
+}
+.iui-treegrid-row-cell:first-child
+{
+	border-left: thin solid #242424;
+}
+.iui-treegrid-row-cell:last-child
+{
+	border-right: thin solid #242424;
+}
+.iui-treegrid-lines-horizontal
+{
+	border-bottom: thin solid #242424;
+}
+.iui-treegrid-lines-vertical
+{
+	border-right: thin solid #242424;
+}
+.iui-treegrid-lines-both
+{
+	border-right: thin solid #242424;
+	border-bottom: thin solid #242424;
+}
+
+.iui-treegrid-expand-box-open
+{
+	background: url(../../icons/expand-white.ico) no-repeat 0 0;
+}
+.iui-treegrid-expand-box-close
+{
+	background: url(../../icons/collapse-white.ico) no-repeat 0 0;
+}
+
+/* Animation */
+.iui-treegrid-column-animate-select
+{
+	background: #808080;
+}
+.iui-treegrid-row-animate-select
+{
+	background: #808080;
+}
+@keyframes treegrid-column-animate-enter
+{
+	0% { 	   
+	    border: thin solid transparent;
+	    box-shadow: none;
+	}
+	100% { 
+	    border: thin solid #cecece;
+	    box-shadow: 2px 3px 3px #242424;
+	}
+}
+@keyframes treegrid-row-animate-enter
+{
+	0% { 	   
+	    border: thin solid transparent;
+	    box-shadow: none;
+	}
+	100% { 
+	    border: thin solid #cecece;
+	    box-shadow: 2px 3px 3px #242424;
+	}
+}

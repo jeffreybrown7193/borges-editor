@@ -2,9 +2,7 @@ import { Component, OnInit, OnDestroy, HostListener } from "@angular/core";
 import { Subscription } from "rxjs";
 import { SidebarService, ISidebar } from "../sidebar/sidebar.service";
 import { Router } from "@angular/router";
-import { LangService, Language } from "src/app/shared/lang.service";
 import { environment } from "src/environments/environment";
-import { getThemeColor, setThemeColor } from "src/app/utils/util";
 
 @Component({
   selector: "app-topnav",
@@ -16,7 +14,6 @@ export class TopnavComponent implements OnInit, OnDestroy {
   sidebar: ISidebar;
   subscription: Subscription;
   displayName = "";
-  languages: Language[];
   currentLanguage: string;
   isSingleLang;
   isFullScreen = false;
@@ -25,27 +22,12 @@ export class TopnavComponent implements OnInit, OnDestroy {
 
   constructor(
     private sidebarService: SidebarService,
-    private router: Router,
-    private langService: LangService
+    private router: Router
   ) {
-    this.languages = this.langService.supportedLanguages;
-    this.currentLanguage = this.langService.languageShorthand;
-    this.isSingleLang = this.langService.isSingleLang;
-    this.isDarkModeActive = getThemeColor().indexOf("dark") > -1 ? true : false;
+
   }
 
-  onDarkModeChange(event) {
-    let color = getThemeColor();
-    if (color.indexOf("dark") > -1) {
-      color = color.replace("dark", "light");
-    } else if (color.indexOf("light") > -1) {
-      color = color.replace("light", "dark");
-    }
-    setThemeColor(color);
-    setTimeout(() => {
-      window.location.reload();
-    }, 200);
-  }
+
 
   fullScreenClick() {
     if (document.fullscreenElement) {
@@ -62,11 +44,6 @@ export class TopnavComponent implements OnInit, OnDestroy {
     } else {
       this.isFullScreen = false;
     }
-  }
-
-  onLanguageChange(lang) {
-    this.langService.language = lang.code;
-    this.currentLanguage = this.langService.languageShorthand;
   }
 
   async ngOnInit() {

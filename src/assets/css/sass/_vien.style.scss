@@ -2492,31 +2492,9 @@ body.default-transition .menu .main-menu {
 .app-menu {
   z-index: 1;
   @include depth(1);
-  width: $app-menu-width;
-  height: 100%;
-  float: right;
+  width: 100%;
   background: $foreground-color;
   transition: transform $menu-collapse-time;
-  position: fixed;
-  right: 0;
-  top: $navbar-height;
-  height: calc(100% - #{$navbar-height});
-
-  @include respond-below(xl) {
-    top: $navbar-height-lg;
-    height: calc(100% - #{$navbar-height-lg});
-  }
-
-  @include respond-below(lg) {
-    top: $navbar-height-md;
-    transform: translateX($app-menu-width);
-    height: calc(100% - #{$navbar-height-md});
-  }
-
-  @include respond-below(sm) {
-    top: $navbar-height-xs;
-    height: calc(100% - #{$navbar-height-xs});
-  }
 
   .scroll {
     height: 100%;
@@ -3409,7 +3387,6 @@ body.default-transition main {
   }
   .fa {
     font-family: "simple-line-icons";
-    speak: none;
     font-style: normal;
     font-weight: normal;
     font-variant: normal;
@@ -3434,11 +3411,11 @@ body.default-transition main {
     line-height: 1rem;
     }
   }
-  
+
     .fc-toolbar.fc-header-toolbar .fc-prev-button {
       margin-right: 0;
     }
-  
+
     .fc-toolbar.fc-header-toolbar .fc-next-button {
       margin-right: 5px;
     }
@@ -7759,7 +7736,7 @@ app-profile-who-to-follow app-user-follow:last-of-type > div {
     border-radius: $border-radius;
   }
 
-  
+
 
   .input-group-append .btn + .btn,
   .input-group-append .btn + .input-group-text,

@@ -1,0 +1,51 @@
+import { ElementRef, EventEmitter } from '@angular/core';
+import { IntegralUIButton } from './integralui.button';
+import { IntegralUIDirection, IntegralUIPlacement } from './integralui.core';
+import { IntegralUICommonService } from '../services/integralui.common.service';
+import * as i0 from "@angular/core";
+export declare class IntegralUIDropDownButton extends IntegralUIButton {
+    protected elemRef: ElementRef;
+    protected commonService?: IntegralUICommonService;
+    protected originalDropDownSettings: any;
+    protected dropDownSettings: any;
+    protected placementValue: IntegralUIPlacement;
+    protected openDirection: IntegralUIDirection;
+    buttonElem: ElementRef;
+    protected buttonClassName: string;
+    protected buttonClass: Array<any>;
+    constructor(elemRef: ElementRef, commonService?: IntegralUICommonService);
+    ngOnInit(): void;
+    protected initStyle(): void;
+    ngAfterViewInit(): void;
+    set placement(value: IntegralUIPlacement);
+    get placement(): IntegralUIPlacement;
+    set direction(value: IntegralUIDirection);
+    get direction(): IntegralUIDirection;
+    set settings(value: any);
+    get settings(): any;
+    itemClick: EventEmitter<any>;
+    dropDownOpening: EventEmitter<any>;
+    dropDownOpened: EventEmitter<any>;
+    dropDownClosed: EventEmitter<any>;
+    private getAdjustmentValue;
+    private updateDropDownSettings;
+    updateAdjustment(): void;
+    onButtonContextMenu(e: any): void;
+    onDropDownItemClick(e: any): void;
+    onDropDownOpening(e: any): void;
+    onDropDownOpened(e: any): void;
+    onDropDownClosed(e: any): void;
+    getControlStyle(): any;
+    getDefaultDropDownStyle(): {
+        general: {
+            normal: string;
+        };
+    };
+    protected updateButtonClass(): void;
+    getButtonClass(): any[];
+    protected getButtonStyle(value: any): any;
+    protected updateStyle(value: any): void;
+    refresh(): void;
+    static ɵfac: i0.ɵɵFactoryDef<IntegralUIDropDownButton, never>;
+    static ɵcmp: i0.ɵɵComponentDefWithMeta<IntegralUIDropDownButton, "iui-dropdown-button", never, { "controlStyle": "controlStyle"; "data": "data"; "enabled": "enabled"; "name": "name"; "size": "size"; "state": "state"; "placement": "placement"; "direction": "direction"; "settings": "settings"; }, { "itemClick": "itemClick"; "dropDownOpening": "dropDownOpening"; "dropDownOpened": "dropDownOpened"; "dropDownClosed": "dropDownClosed"; }, never, ["*"]>;
+}
