@@ -22,6 +22,7 @@ import { IntegralUIModule } from '@lidorsystems/integralui-web/bin/integralui/in
     BrowserModule,
     FormsModule,
     ViewsModule,
+    IntegralUIModule,
     AppRoutingModule,
     LayoutContainersModule,
     BrowserAnimationsModule,
@@ -31,9 +32,7 @@ import { IntegralUIModule } from '@lidorsystems/integralui-web/bin/integralui/in
     StoreModule.forRoot(reducers),
     StoreDevtoolsModule,
     EffectsModule.forRoot([ProjectEffects]),
-    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
-    IntegralUIModule
-
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production })
   ],
   declarations: [
     AppComponent

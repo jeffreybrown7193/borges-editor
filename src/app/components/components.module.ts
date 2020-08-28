@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
-import { IntegralUITreeViewModule } from '../integralui/integralui.treeview.module';
 import { ProjectsListItemComponent } from './project-components/projects-list-item/projects-list-item.component';
 import { ProjectStructureSidebarComponent } from './project-components/project-structure-sidebar/project-structure-sidebar.component';
 import { AppRoutingModule } from '../views/app/app.routing';
