@@ -1,1 +1,1 @@
-Borges Staging
+The Borges Editor

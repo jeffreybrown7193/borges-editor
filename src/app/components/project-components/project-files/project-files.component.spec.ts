@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { FileTreeComponent } from './file-tree.component';
+import { ProjectFilesComponent } from './project-files.component';
 
-describe('FileTreeComponent', () => {
-  let component: FileTreeComponent;
-  let fixture: ComponentFixture<FileTreeComponent>;
+describe('ProjectFilesComponent', () => {
+  let component: ProjectFilesComponent;
+  let fixture: ComponentFixture<ProjectFilesComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ FileTreeComponent ]
+      declarations: [ ProjectFilesComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(FileTreeComponent);
+    fixture = TestBed.createComponent(ProjectFilesComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
