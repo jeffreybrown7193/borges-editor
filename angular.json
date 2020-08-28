@@ -34,7 +34,7 @@
             "styles": [
               "src/assets/css/vendor/bootstrap.min.css",
               "src/assets/css/vendor/bootstrap.rtl.only.min.css",
-              "src/app/integralui/css/integralui.css",
+              "node_modules/@lidorsystems/integralui-web/bin/integralui/css/integralui.css",
               "node_modules/quill/dist/quill.snow.css",
               "node_modules/quill/dist/quill.bubble.css",
               "node_modules/@ng-select/ng-select/themes/default.theme.css",

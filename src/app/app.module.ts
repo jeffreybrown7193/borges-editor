@@ -15,7 +15,7 @@ import { LayoutContainersModule } from './containers/layout/layout.containers.mo
 import { ProjectEffects } from './effects/projects.effects';
 import { reducers } from 'src/app/reducers/projects.reducers';
 import { environment } from '../environments/environment';
-import { IntegralUIModule } from './integralui/integralui.module';
+import { IntegralUIModule } from '@lidorsystems/integralui-web/bin/integralui/integralui.module'
 
 @NgModule({
   imports: [
