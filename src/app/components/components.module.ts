@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import {MatTreeModule} from '@angular/material/tree';
 import { HttpClientModule } from '@angular/common/http';
 import { ProjectsListItemComponent } from './project-components/projects-list-item/projects-list-item.component';
 import { ProjectStructureSidebarComponent } from './project-components/project-structure-sidebar/project-structure-sidebar.component';
@@ -16,6 +17,7 @@ import { ProjectFilesComponent } from './project-components/project-files/projec
     CommonModule,
     HttpClientModule,
     RouterModule,
+    MatTreeModule,
     AppRoutingModule,
     QuillModule.forRoot()
   ],

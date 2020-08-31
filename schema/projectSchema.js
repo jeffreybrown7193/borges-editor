@@ -1,13 +1,14 @@
 const mongoose = require('mongoose');
 
 const WritingProjectsSchema = new mongoose.Schema({
-  projectUser: String,
+  id: Number,
+  user: String,
   name: String,
   type: String,
   description: String
 },
 {
-  collection: "writingProjects"
+  collection: "WritingProject"
 });
 
 const WritingProject = new mongoose.model("WritingProject", WritingProjectsSchema);

@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app.routing';
+import {MatTreeModule} from '@angular/material/tree';
 import { SharedModule } from '../../shared/shared.module';
 import { LayoutContainersModule } from '../../containers/layout/layout.containers.module';
 import { ProjectDashboardComponent } from '../../views/app/projects/project-dashboard/project-dashboard.component';
@@ -18,7 +19,8 @@ import { ProjectStudioComponent } from './projects/project-studio/project-studio
     SharedModule,
     LayoutContainersModule,
     ComponentsModule,
-    RouterModule
+    RouterModule,
+    MatTreeModule
   ]
 })
 export class AppModule { }
