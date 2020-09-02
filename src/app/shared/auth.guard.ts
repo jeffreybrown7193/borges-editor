@@ -1,55 +1,21 @@
-import {
-  CanActivate,
-  Router,
-  ActivatedRouteSnapshot,
-  RouterStateSnapshot,
-  CanActivateChild,
-} from '@angular/router';
 import { Injectable } from '@angular/core';
+import { CanActivate,Router } from '@angular/router';
 import { AuthService } from './auth.service';
 
-@Injectable({ providedIn: 'root' })
-export class AuthGuard implements CanActivate, CanActivateChild {
-  constructor(private authService: AuthService, private router: Router) {}
-  async canActivateChild(
-    route: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot
-  ) {
-    let currentUser = await this.authService.getUser();
+@Injectable({
+  providedIn: 'root'
+})
+export class AuthGuardService implements CanActivate {
 
-    if (currentUser) {
-      if (route.data && route.data.roles) {
-        if (route.data.roles.includes(currentUser.role)) {
-          return true;
-        } else {
-          this.router.navigate(['/unauthorized']);
-          return false;
-        }
-      } else {
-        return true;
-      }
-    } else {
-      this.router.navigate(['/user/login']);
-      return false;
-    }
-  }
-  async canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-    let currentUser = await this.authService.getUser();
+  constructor(private authService : AuthService, private route : Router) { }
 
-    if (currentUser) {
-      if (route.data && route.data.roles) {
-        if (route.data.roles.includes(currentUser.role)) {
-          return true;
-        } else {
-          this.router.navigate(['/unauthorized']);
-          return false;
-        }
-      } else {
-        return true;
-      }
-    } else {
-      this.router.navigate(['/user/login']);
-      return false;
+  canActivate() {
+    if (this.authService.isAuthenticated()) {
+      console.log('yes');
+      return true;
     }
+    console.log('no');
+    this.route.navigate(['user/login']);
+    return false;
   }
 }

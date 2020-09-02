@@ -11,17 +11,7 @@
               <span class="badge badge-pill badge-secondary">{{ project.status }}</span>
             </div>
             <div class="btn-group">
-              <button class="btn btn-primary" type="button">Edit Project</button>
-              <button id="button-split" class="btn btn-primary dropdown-toggle dropdown-toggle-split" aria-controls="dropdown-split" aria-haspopup="true" aria-expanded="false">
-                <span class="caret"></span>
-                <span class="sr-only">Split button!</span>
-                <ul id="dropdown-split" role="menu" aria-labelledby="button-split" class="dropdown-menu" style="left: 0px; right: auto;">
-                  <li role="menuitem"><a href="javascript:;" class="dropdown-item">Duplicate</a></li>
-                  <li role="menuitem"><a href="javascript:;" class="dropdown-item">Project Metadata</a></li>
-                  <li class="divider dropdown-divider"></li>
-                  <li role="menuitem"><a href="javascript:;" class="dropdown-item">Archive Project</a></li>
-                </ul>
-              </button>
+              <button [routerLink]="['/project-studio']" (click)="onSelect(project)" class="btn btn-primary" type="button">Edit Project</button>
             </div>
           </div>
         </div>

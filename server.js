@@ -1,21 +1,58 @@
 // required modules =================================================
 const express = require('express');
 const app = express();
+const path = require('path');
 const bodyParser = require('body-parser');
+const cookieParser = require('cookie-parser');
 const methodOverride = require('method-override');
-var admin = require("firebase-admin");
+var passport = require('passport');
+var LocalStrategy = require('passport-local').Strategy;
+// //
 
-var serviceAccount = require("./firebase-service.json");
 
-admin.initializeApp({
-  credential: admin.credential.cert(serviceAccount),
-  databaseURL: "https://borges-6fd48.firebaseio.com"
-});
 
-// routes ==================================================
+// Mongoose MongoDB Connection //
+const mongoOptions = {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  useCreateIndex: true,
+  useFindAndModify: false,
+  autoIndex: false,
+  poolSize: 10,
+  serverSelectionTimeoutMS: 5000,
+  socketTimeoutMS: 45000,
+  family: 4
+};
+var mongoose = require('mongoose');
+mongoose.Promise = global.Promise;
+mongoose.connect('mongodb+srv://jeffreyallanbrown:LittleDusty2021!@borges.na4zy.gcp.mongodb.net/borges?retryWrites=true&w=majority', mongoOptions)
+  .then(() =>  console.log('db connection succesful'))
+  .catch((err) => console.error(err));
+// //
 
-// set our port
+
+// Set Port and Define Routes //
 const port = process.env.PORT || 4201;
+require('./routes/api')(app);
+require('./routes/auth')(app);
+// //
+
+
+// Session Management Middleware //
+app.use(require('express-session')({
+  secret: 'baby everett',
+  resave: false,
+  saveUninitialized: false
+}));
+app.use(passport.initialize());
+app.use(passport.session());
+var User = require('./mongo-schema/userSchema');
+passport.use(new LocalStrategy(User.authenticate()));
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
+// //
+
+
 
 // parse application/json
 app.use(bodyParser.json());
@@ -31,8 +68,6 @@ app.use(methodOverride('X-HTTP-Method-Override'));
 
 // set the static files location
 app.use(express.static(__dirname + '/src/app/assets'));
-
-require('./routes/api')(app);
 
 // start app ===============================================
 app.listen(port);

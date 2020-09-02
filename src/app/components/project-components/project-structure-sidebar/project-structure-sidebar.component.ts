@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
+import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Project } from 'src/app/interfaces/project';
 import { AppState } from 'src/app/reducers/projects.reducers';
@@ -14,14 +15,19 @@ export class ProjectStructureSidebarComponent implements OnInit {
   selectedProject: any;
   public project:Project;
 
-  constructor(private store: Store<AppState>) {
+  constructor(private store: Store<AppState>, private router: Router) {
 
   }
 
   ngOnInit() {
     this.store.select('projects').subscribe((projects) => {
       this.projects = projects.selectedProject;
-      this.useSelectedProject(this.projects);
+      if (projects.selectedProject == null){
+        this.router.navigate([''])
+      } else {
+        this.useSelectedProject(this.projects);
+      }
+
     });
 
   }

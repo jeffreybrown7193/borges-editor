@@ -1,69 +1,25 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { from } from 'rxjs';
 
-import { getUserRole } from 'src/app/utils/util';
-
-export interface ISignInCredentials {
-  email: string;
-  password: string;
-}
-
-export interface ICreateCredentials {
-  email: string;
-  password: string;
-  displayName: string;
-}
-
-export interface IPasswordReset {
-  code: string;
-  newPassword: string;
-}
-
 @Injectable({ providedIn: 'root' })
 export class AuthService {
-  constructor(private auth: AngularFireAuth) {}
+  constructor(private http : HttpClient) { }
 
-  signIn(credentials: ISignInCredentials) {
-    return this.auth
-      .signInWithEmailAndPassword(credentials.email, credentials.password)
-      .then(({ user }) => {
-        return user;
-      });
-  }
-
-  signOut() {
-    return from(this.auth.signOut());
-  }
-
-  register(credentials: ICreateCredentials) {
-    return this.auth
-      .createUserWithEmailAndPassword(credentials.email, credentials.password)
-      .then(async ({ user }) => {
-        user.updateProfile({
-          displayName: credentials.displayName,
-        });
-        this.auth.updateCurrentUser(user);
-        return user;
-      });
-  }
-
-  sendPasswordEmail(email) {
-    return this.auth.sendPasswordResetEmail(email).then(() => {
+  public isAuthenticated(): Boolean {
+    let userData = localStorage.getItem('userInfo')
+    if(userData && JSON.parse(userData)){
       return true;
-    });
+    }
+    return false;
   }
 
-  resetPassword(credentials: IPasswordReset) {
-    return this.auth
-      .confirmPasswordReset(credentials.code, credentials.newPassword)
-      .then((data) => {
-        return data;
-      });
+  public setUserInfo(user){
+    localStorage.setItem('userInfo', JSON.stringify(user));
   }
 
-  async getUser() {
-    const u = await this.auth.currentUser;
-    return { ...u, role: getUserRole() };
+  public validate(email, password) {
+    return this.http.post('/login', {'username' : email, 'password' : password}).toPromise()
   }
 }

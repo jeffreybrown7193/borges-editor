@@ -1,0 +1,41 @@
+<div class="card auth-card">
+  <div class="position-relative image-side ">
+    <p class=" text-white h2">MAGIC IS IN THE DETAILS</p>
+    <p class="white mb-0">
+      Please use the form to register.
+      <br>If you are a member, please
+      <a routerLink="/user/login" class="white white-underline-link">login</a>.
+    </p>
+  </div>
+  <div class="form-side">
+    <a class="c-pointer">
+      <span class="logo-single"></span>
+    </a>
+    <h6 class="mb-4">Register</h6>
+
+    <form novalidate>
+      <label class="form-group has-float-label">
+        <input class="form-control" required ngModel name="displayName"/>
+        <span>{{ 'user.fullname' | translate }}</span>
+        <div class="invalid-tooltip">Name is required!</div>
+      </label>
+      <label class="form-group has-float-label">
+        <input class="form-control" required email ngModel name="email"/>
+        <span>{{ 'user.email' | translate }}</span>
+        <div class="invalid-tooltip">Email is required!</div>
+        <div class="invalid-tooltip">Email must be a valid address!</div>
+      </label>
+      <label class="form-group has-float-label">
+        <input class="form-control" type="password" placeholder="" required ngModel name="password"/>
+        <span>{{ 'user.password' | translate }}</span>
+        <div class="invalid-tooltip">Password is required!</div>
+      </label>
+      <div class="d-flex justify-content-between align-items-center">
+        <a routerLink="/user/forgot-password">{{ 'user.forgot-password' | translate }}?</a>
+
+
+      </div>
+    </form >
+
+  </div>
+</div>
