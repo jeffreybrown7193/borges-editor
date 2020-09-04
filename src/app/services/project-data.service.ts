@@ -7,7 +7,7 @@ import { ProjectState } from '../reducers/projects.reducers';
   providedIn: 'root'
 })
 export class ProjectDataService {
-  baseUrl = '/projects';
+  baseUrl = '/api/projects';
   constructor( public store: Store<ProjectState>, public http: HttpClient) { }
 
   public LoadProjects( ) {
