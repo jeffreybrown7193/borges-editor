@@ -18,7 +18,6 @@ export class ProjectStudioComponent implements OnInit {
   constructor(private store: Store<AppState>, private router: Router) {}
 
   ngOnInit() {
-    this.router.navigate(['']);
     this.store.select('projects').subscribe((projects) => {
       this.projects = projects.selectedProject;
       this.useSelectedProject(this.projects);

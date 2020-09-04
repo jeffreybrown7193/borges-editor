@@ -1,5 +1,5 @@
 import { Component, OnInit, Renderer2, AfterViewInit } from '@angular/core';
-import { LangService } from './shared/lang.service';
+import { LangService } from './services/lang.service';
 import { environment } from 'src/environments/environment';
 import { Injectable } from '@angular/core';
 

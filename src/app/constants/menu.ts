@@ -11,10 +11,10 @@ export interface IMenuItem {
 }
 const data: IMenuItem[] = [
   {
-    id: 'projects',
+    id: 'project-dashboard',
     icon: 'iconsminds-books',
-    label: 'menu.projects-dashboard',
-    to: `${adminRoot}`
+    label: 'menu.project-dashboard',
+    to: `/project-dashboard`
   },
   {
     id: 'reading-lists',

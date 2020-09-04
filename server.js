@@ -1,17 +1,18 @@
-// required modules =================================================
+// Required Modules //
+const env = require('dotenv').config();
 const express = require('express');
 const app = express();
 const path = require('path');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const methodOverride = require('method-override');
-var passport = require('passport');
-var LocalStrategy = require('passport-local').Strategy;
-// //
+const passport = require('passport');
+// // // // // // // // //
 
 
 
 // Mongoose MongoDB Connection //
+///
 const mongoOptions = {
   useNewUrlParser: true,
   useUnifiedTopology: true,
@@ -26,19 +27,25 @@ const mongoOptions = {
 var mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
 mongoose.connect('mongodb+srv://jeffreyallanbrown:LittleDusty2021!@borges.na4zy.gcp.mongodb.net/borges?retryWrites=true&w=majority', mongoOptions)
-  .then(() =>  console.log('db connection succesful'))
+  .then(() =>  console.log('db connection successful'))
   .catch((err) => console.error(err));
-// //
+///
+// // // // //
+
 
 
 // Set Port and Define Routes //
-const port = process.env.PORT || 4201;
-require('./routes/api')(app);
+//
+const port = process.env.PORT || '3000';
+require('./routes/projectsAPI')(app);
 require('./routes/auth')(app);
-// //
+//
+// // // // //
+
 
 
 // Session Management Middleware //
+//
 app.use(require('express-session')({
   secret: 'baby everett',
   resave: false,
@@ -46,11 +53,9 @@ app.use(require('express-session')({
 }));
 app.use(passport.initialize());
 app.use(passport.session());
-var User = require('./mongo-schema/userSchema');
-passport.use(new LocalStrategy(User.authenticate()));
-passport.serializeUser(User.serializeUser());
-passport.deserializeUser(User.deserializeUser());
-// //
+//
+// // // // // // // // //
+
 
 
 
@@ -67,10 +72,10 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(methodOverride('X-HTTP-Method-Override'));
 
 // set the static files location
-app.use(express.static(__dirname + '/src/app/assets'));
+app.use(express.static(__dirname + '/src/assets'));
 
 // start app ===============================================
 app.listen(port);
 
 // shoutout to the user
-console.log('Okay...Listening on port ' + port);
+console.log('Server is listening on port: ' + port);

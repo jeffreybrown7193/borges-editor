@@ -1,22 +1,16 @@
-
-import { UserRole } from '../app/shared/auth.roles';
-
 export const environment = {
   production: true,
-  buyUrl : "",
   SCARF_ANALYTICS : false,
-  adminRoot: '/projects-dashboard',
-  apiUrl: '',
+  adminRoot: 'project-dashboard',
   defaultMenuType: 'menu-default',
   subHiddenBreakpoint: 1440,
   menuHiddenBreakpoint: 768,
   themeColorStorageKey: 'vien-themecolor',
   isMultiColorActive: false,
-  myEndpoint: 'localhost:4201',
+  myEndpoint: 'localhost:3000',
   defaultColor: 'light.blueyale',
   isDarkSwitchActive: false,
   defaultDirection: 'ltr',
   themeRadiusStorageKey: 'vien-themeradius',
-  isAuthGuardActive: true,
-  defaultRole: UserRole.Admin
+  isAuthGuardActive: true
 };

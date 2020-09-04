@@ -5,7 +5,10 @@ const WritingProjectsSchema = new mongoose.Schema({
   user: String,
   name: String,
   type: String,
-  description: String
+  description: String,
+  status: Number,
+  folders: Array,
+  tags: Array,
 },
 {
   collection: "WritingProject"

@@ -1,22 +1,65 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { AuthService } from 'src/app/shared/auth.service';
-import { NotificationsService, NotificationType } from 'angular2-notifications';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { NgForm } from '@angular/forms';
-import { environment } from 'src/environments/environment';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { first } from 'rxjs/operators';
 
-@Component({
-  selector: 'app-register',
-  templateUrl: './register.component.html',
-})
+import { AuthenticationService } from 'src/app/services/auth.service';
+import { AlertService } from 'src/app/services/alert.service';
+import { UserService} from 'src/app/services/user.service';
+
+@Component({ templateUrl: 'register.component.html' })
 export class RegisterComponent implements OnInit {
-  @ViewChild('registerForm') registerForm: NgForm;
-  buttonDisabled = false;
-  buttonState = '';
+    registerForm: FormGroup;
+    loading = false;
+    submitted = false;
 
-  constructor(private authService: AuthService, private notifications: NotificationsService, private router: Router) { }
+    constructor(
+        private formBuilder: FormBuilder,
+        private router: Router,
+        private authenticationService: AuthenticationService,
+        private userService: UserService,
+        private alertService: AlertService
+    ) {
+        // redirect to home if already logged in
+        if (this.authenticationService.currentUserValue) {
+            this.router.navigate(['/']);
+        }
+    }
 
-  ngOnInit() {
-  }
+    ngOnInit() {
+        this.registerForm = this.formBuilder.group({
+            firstName: ['', Validators.required],
+            lastName: ['', Validators.required],
+            username: ['', Validators.required],
+            password: ['', [Validators.required, Validators.minLength(6)]]
+        });
+    }
 
+    // convenience getter for easy access to form fields
+    get f() { return this.registerForm.controls; }
+
+    onSubmit() {
+        this.submitted = true;
+
+        // reset alerts on submit
+        this.alertService.clear();
+
+        // stop here if form is invalid
+        if (this.registerForm.invalid) {
+            return;
+        }
+
+        this.loading = true;
+        this.userService.register(this.registerForm.value)
+            .pipe(first())
+            .subscribe(
+                data => {
+                    this.alertService.success('Registration successful', true);
+                    this.router.navigate(['/login']);
+                },
+                error => {
+                    this.alertService.error(error);
+                    this.loading = false;
+                });
+    }
 }
